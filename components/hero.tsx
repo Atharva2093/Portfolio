@@ -2,22 +2,24 @@
 
 import React, { useRef, useState } from "react"
 import { motion } from "framer-motion"
-import { Github, Linkedin, Twitter, Instagram, Mail } from "lucide-react"
+import { Github, Linkedin, Twitter, Instagram, Mail, MapPin, Calendar, Phone } from "lucide-react"
 import BlurText from "./ui/blur-text"
 
 // --- Personal Information ---
 const personalInfo = {
-  profileImage: "/placeholder.svg?height=360&width=320",
+  profileImage: "/placeholder.svg?height=400&width=320&text=Atharva+Jondhale",
   name: "Atharva Jondhale",
   role: "UI/UX & Frontend Developer",
   subRole: "ERP Developer Intern • Creative Director",
+  location: "Nashik, Maharashtra",
+  experience: "2+ Years",
   techStack: ["React", "C#", "TypeScript", "Avalonia UI", "Firebase", "Google Cloud"],
   socialLinks: {
     github: "https://github.com/atharvajondhale",
     linkedin: "https://www.linkedin.com/in/atharvajondhale7",
-    twitter: "https://twitter.com/atharvajondhale",
-    instagram: "https://www.instagram.com/atharvajondhale",
-    email: "mailto:atharvajondhale@gmail.com",
+    twitter: "https://x.com/atharva_j2093",
+    instagram: "https://www.instagram.com/atharva_j2093",
+    email: "mailto:atharvajondhale7@gmail.com",
   },
 }
 
@@ -41,7 +43,7 @@ const heroContentVariants = {
     y: 0,
     transition: {
       duration: 0.8,
-      staggerChildren: 0.2,
+      staggerChildren: 0.15,
     },
   },
 }
@@ -98,34 +100,51 @@ export const Hero = () => {
   const [isPhotoHovered, setIsPhotoHovered] = useState(false)
 
   const bioTextContent =
-    "Hi, I'm Atharva — UI and DBMS Specialist at Neon Genesis and ERP Developer at Praktan Technologies. I build fast, user-focused web apps with React, TypeScript, and Tailwind, and develop scalable backends using C#, Avalonia, and gRPC. Passionate about AI-powered tools like BrainBuddy, creative tech, and crafting clean, impactful digital experiences."
+    "Hi, I'm Atharva — a Computer Engineering student passionate about building seamless, user-centric digital experiences. I love blending creativity with technology to design smart, modern solutions powered by AI and thoughtful design."
 
   return (
     <section
       id="home"
       ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-transparent py-20"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-transparent py-8"
       aria-label="Hero section"
     >
+      {/* Subtle Background Elements */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-20 left-10 w-32 h-32 border border-blue-400 rounded-full animate-pulse"></div>
+        <div
+          className="absolute bottom-20 right-10 w-24 h-24 border border-purple-400 rounded-full animate-pulse"
+          style={{ animationDelay: "1s" }}
+        ></div>
+        <div
+          className="absolute top-1/2 left-1/4 w-16 h-16 border border-cyan-400 rounded-full animate-pulse"
+          style={{ animationDelay: "2s" }}
+        ></div>
+        <div
+          className="absolute top-1/3 right-1/3 w-20 h-20 border border-green-400 rounded-full animate-pulse"
+          style={{ animationDelay: "3s" }}
+        ></div>
+      </div>
+
       {/* Main Content Container */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center min-h-[80vh]">
+        <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 items-center min-h-[90vh]">
           {/* Profile Image Section - Left Side */}
           <motion.div
-            className="lg:col-span-4 flex justify-center lg:justify-start order-1 lg:order-1"
+            className="lg:col-span-4 flex flex-col items-center lg:items-start order-1 lg:order-1"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            onMouseEnter={() => setIsPhotoHovered(true)}
-            onMouseLeave={() => setIsPhotoHovered(false)}
           >
-            <div className="relative group">
+            <div className="relative group mb-4">
               <div
                 className="relative w-80 h-96 rounded-2xl overflow-hidden border-2 shadow-2xl transition-all duration-500 group-hover:scale-105 professional-card"
                 style={{
                   borderColor: themeColors.accentBlue,
                   boxShadow: `0 10px 40px rgba(59, 130, 246, 0.2)`,
                 }}
+                onMouseEnter={() => setIsPhotoHovered(true)}
+                onMouseLeave={() => setIsPhotoHovered(false)}
               >
                 <img
                   src={personalInfo.profileImage || "/placeholder.svg"}
@@ -137,60 +156,74 @@ export const Hero = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
             </div>
+
+            {/* Quick Info Cards - Same width as photo */}
+            <motion.div
+              className="w-80 space-y-3"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+            >
+              <div className="professional-card p-4 rounded-xl">
+                <div className="flex items-center gap-3 text-sm">
+                  <MapPin size={16} className="text-blue-400" />
+                  <span className="text-gray-300">{personalInfo.location}</span>
+                </div>
+              </div>
+              <div className="professional-card p-4 rounded-xl">
+                <div className="flex items-center gap-3 text-sm">
+                  <Calendar size={16} className="text-purple-400" />
+                  <span className="text-gray-300">{personalInfo.experience} Experience</span>
+                </div>
+              </div>
+              <div className="professional-card p-4 rounded-xl">
+                <div className="flex items-center gap-3 text-sm">
+                  <Phone size={16} className="text-green-400" />
+                  <span className="text-gray-300">+91 XXXXX XXXXX</span>
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
 
           {/* Hero Content - Center */}
           <motion.div
-            className="lg:col-span-6 text-center lg:text-left order-2 lg:order-2"
+            className="lg:col-span-6 text-center lg:text-left order-2 lg:order-2 space-y-4 lg:pt-8"
             initial="hidden"
             animate="visible"
             variants={heroContentVariants}
           >
-            {/* Main Heading */}
+            {/* Main Heading - Fixed Visibility */}
             <motion.h1
-              className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight mb-6"
+              className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight"
               variants={itemVariants}
             >
               <div className="overflow-hidden">
                 <BlurText
-                  text="Atharva"
+                  text="Atharva Jondhale"
                   delay={300}
                   animateBy="word"
                   direction="top"
-                  className="block font-black font-heading"
-                  style={{
-                    color: themeColors.textPrimary,
-                  }}
-                />
-              </div>
-              <div className="overflow-hidden">
-                <BlurText
-                  text="Jondhale"
-                  delay={600}
-                  animateBy="word"
-                  direction="top"
-                  className="block font-black gradient-text font-heading"
+                  className="block font-black font-heading text-white"
                 />
               </div>
             </motion.h1>
 
             {/* Animated Role */}
-            <motion.div className="mb-8" variants={itemVariants}>
-              <div
-                className="text-2xl md:text-3xl lg:text-4xl font-bold font-mono"
-                style={{
-                  color: themeColors.accentCyan,
-                }}
-              >
+            <motion.div variants={itemVariants}>
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold font-mono text-cyan-400">
                 <TypeAnimation
                   sequence={[
                     "ERP Developer Intern",
                     2500,
                     "UI/UX Specialist",
                     2500,
-                    "Co-founder @ Neon Genesis",
+                    "Neon Genesis Co-founder",
                     2500,
                     "Frontend Engineer",
+                    2500,
+                    "Tech Explorer",
+                    2500,
+                    "Hackathon Enthusiast",
                     2500,
                   ]}
                   wrapper="span"
@@ -203,57 +236,45 @@ export const Hero = () => {
 
             {/* Bio */}
             <motion.p
-              className="text-lg md:text-xl leading-relaxed mb-10 max-w-3xl mx-auto lg:mx-0 font-body"
+              className="text-lg leading-relaxed max-w-3xl mx-auto lg:mx-0 font-body leading-[2.75rem] text-pink-200 shadow-xl md:text-2xl"
               variants={itemVariants}
-              style={{
-                color: themeColors.textSecondary,
-                lineHeight: "1.7",
-              }}
             >
               {bioTextContent}
             </motion.p>
+
+            {/* Tech Stack */}
+            <motion.div variants={itemVariants} className="space-y-4"></motion.div>
+
+            {/* Action Buttons */}
+            <motion.div variants={itemVariants} className="flex flex-wrap gap-8 pt-4"></motion.div>
           </motion.div>
 
-          {/* Social Links - Right Side */}
+          {/* Social Links & Stats - Right Side */}
           <motion.div
-            className="lg:col-span-2 flex lg:flex-col flex-row justify-center lg:justify-end gap-4 order-3 lg:order-3"
+            className="lg:col-span-2 flex flex-col gap-6 order-3 lg:order-3 lg:pt-8 lg:pl-4 items-end"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
           >
-            <div className="flex lg:flex-col flex-row gap-4 lg:items-end items-center">
+            {/* Social Links - Moved more to the right */}
+            <div className="flex flex-row gap-6 justify-center lg:justify-start lg:flex-col tracking-normal lg:items-start">
               <SocialIconLink href={personalInfo.socialLinks.github} icon={Github} name="GitHub" />
               <SocialIconLink href={personalInfo.socialLinks.linkedin} icon={Linkedin} name="LinkedIn" />
               <SocialIconLink href={personalInfo.socialLinks.twitter} icon={Twitter} name="Twitter" />
               <SocialIconLink href={personalInfo.socialLinks.instagram} icon={Instagram} name="Instagram" />
               <SocialIconLink href={personalInfo.socialLinks.email} icon={Mail} name="Email" />
             </div>
+
+            {/* Quick Stats */}
+            <motion.div
+              className="space-y-4 hidden lg:block"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.4 }}
+            ></motion.div>
           </motion.div>
         </div>
       </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 1.5 }}
-      >
-        <div className="flex flex-col items-center gap-2">
-          <span className="text-sm font-medium" style={{ color: themeColors.textSecondary }}>
-            Scroll Down
-          </span>
-          <div
-            className="w-6 h-10 border-2 rounded-full flex justify-center"
-            style={{ borderColor: themeColors.accentCyan }}
-          >
-            <div
-              className="w-1 h-3 rounded-full mt-2 animate-bounce"
-              style={{ backgroundColor: themeColors.accentCyan }}
-            />
-          </div>
-        </div>
-      </motion.div>
     </section>
   )
 }
@@ -286,7 +307,7 @@ const SocialIconLink = ({ href, icon: IconComponent, name }) => {
           }}
         />
 
-        {/* Sliding Attached Tooltip - Positioned to the left for right-side social icons */}
+        {/* Sliding Attached Tooltip */}
         <motion.div
           className="absolute right-full top-0 bottom-0 flex items-center pointer-events-none"
           initial={{ width: 0, opacity: 0 }}
