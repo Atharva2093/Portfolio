@@ -128,21 +128,18 @@ const About = (props: AboutProps) => {
                   animate="visible"
                   exit="exit"
                   variants={floatIn}
-                  className="w-full text-center cursor-pointer"
+                  className="w-full h-[320px] flex flex-col items-center justify-center text-center cursor-pointer select-none"
                 >
                   <h3
-                    className="text-3xl md:text-4xl font-heading font-bold mb-4 tracking-tight"
+                    className="text-5xl md:text-6xl font-heading font-extrabold mb-6 tracking-tight drop-shadow-lg"
                     style={{ color: themeColors.accentPurple }}
                   >
                     Who Am I?
                   </h3>
                   <p
-                    className="text-base md:text-xl leading-relaxed max-w-3xl mx-auto font-body"
+                    className="text-lg md:text-2xl leading-relaxed max-w-2xl mx-auto font-body opacity-80"
                     style={{ color: themeColors.textPrimary }}
                   >
-                    I'm a curious coder blending precision with creativity to build engaging digital realities.
-                  </p>
-                  <p className="mt-4 text-xs md:text-sm italic font-body" style={{ color: themeColors.textSecondary }}>
                     (Hover to uncover my story)
                   </p>
                 </motion.div>
@@ -155,49 +152,44 @@ const About = (props: AboutProps) => {
                   variants={floatIn}
                   className="w-full text-left"
                 >
-                  <p
-                    className="text-lg md:text-xl font-body mb-5 leading-relaxed"
-                    style={{ color: themeColors.textPrimary }}
-                  >
-                    Hi, I'm <span className="font-semibold gradient-text">Atharva Jondhale</span> — a Computer Science
-                    and Engineering student at MCOERC, Nashik. I'm the co-founder of Neon Genesis and currently work as
-                    an ERP software developer at Praktan Technologies.
-                  </p>
-                  <p
-                    className="text-lg md:text-xl font-body mb-5 leading-relaxed"
-                    style={{ color: themeColors.textPrimary }}
-                  >
-                    My passion lies in crafting intuitive, performance-driven web interfaces with a strong focus on
-                    Frontend and UI/UX development. Driven by curiosity and creativity, I love turning ideas into
-                    interactive digital experiences through thoughtful design and clean code.
-                  </p>
-                  <div className="mt-6">
-                    <h4 className="text-lg font-semibold mb-3 gradient-text" style={{ color: themeColors.accentCyan }}>
-                      Key Skills:
-                    </h4>
-                    <ul className="space-y-2 text-base" style={{ color: themeColors.textSecondary }}>
-                      <li>
-                        <strong style={{ color: themeColors.textPrimary }}>Frontend Engineering:</strong> Building
-                        responsive and maintainable UIs
-                      </li>
-                      <li>
-                        <strong style={{ color: themeColors.textPrimary }}>UI/UX Design:</strong> Crafting smooth,
-                        user-centric experiences
-                      </li>
-                      <li>
-                        <strong style={{ color: themeColors.textPrimary }}>Creative Coding & Animation:</strong> Dynamic
-                        visuals through code
-                      </li>
-                      <li>
-                        <strong style={{ color: themeColors.textPrimary }}>EdTech & Open Source:</strong> Passionate
-                        about learning tools and collaboration
-                      </li>
-                      <li>
-                        <strong style={{ color: themeColors.textPrimary }}>Immersive Interfaces:</strong> Designing
-                        seamless, engaging multi-device UIs
-                      </li>
-                    </ul>
-                  </div>
+        <div className="space-y-6 text-white font-body leading-relaxed">
+  <p className="text-xl font-semibold font-sans">
+    Hey! I’m <span className="text-pink-500 font-semibold">Atharva Jondhale</span> — a tech enthusiast passionate about building sleek, high-performance digital experiences.
+    I blend creativity with code to craft interfaces that feel <span className="text-pink-500 font-semibold">fresh</span>, intuitive, and genuinely <span className="text-pink-500 font-semibold">fun</span> to use.
+    When I’m not coding, I’m exploring new tools, prototyping ideas, or leveling up my dev game.
+  </p>
+
+  <ul className="list-none space-y-3 text-white/90 text-lg font-normal mt-4">
+    <li>🎓 <span className="font-semibold">Computer Engineering student</span> at MCOERC, Nashik</li>
+    <li>
+      🚀 Building full-stack projects at 
+      <a href="https://neon-genesis.vercel.app/" target="_blank" rel="noopener noreferrer"
+         className="font-semibold text-pink-500 hover:text-pink-400 transition-colors duration-300 no-underline ml-1">
+        Neon Genesis
+      </a>
+    </li>
+    <li>
+      💼 ERP Developer Intern at 
+      <a href="https://www.praktan.com/" target="_blank" rel="noopener noreferrer"
+         className="font-semibold text-pink-500 hover:text-pink-400 transition-colors duration-300 no-underline ml-1">
+        Praktan Technologies
+      </a>
+    </li>
+    <li>🎨 Specializing in frontend development and UI/UX design</li>
+    <li>🎭 Passionate about creative coding, motion, and visuals</li>
+    <li>🌐 Builds immersive, responsive apps for all screens</li>
+    <li>🧰 Fluent in React, Tailwind CSS, Framer Motion, gRPC, MVVM</li>
+    <li>💡 Always experimenting, always solving</li>
+    <li>🤝 Thrives in collaborative, agile environments</li>
+    <li>📊 Experienced in building scalable, data-driven systems</li>
+<li>📸 Media production & tech event coverage at MCOERC</li>
+
+  </ul>
+</div>
+
+
+
+
                 </motion.div>
               )}
             </AnimatePresence>
@@ -216,31 +208,31 @@ const About = (props: AboutProps) => {
                 Quick Facts
               </h3>
               <ul className="space-y-4">
-                {data.facts.map((fact) => (
-                  <motion.li
-                    key={fact.label}
-                    className="flex items-center gap-3 text-base md:text-lg font-body"
-                    style={{ color: themeColors.textSecondary }}
-                  >
-                    <span style={{ color: themeColors.accentCyan }}>{fact.icon}</span>
-                    <span className="font-medium" style={{ color: themeColors.textPrimary }}>
-                      {fact.label}:
-                    </span>
-                    <span
-                      className="font-semibold"
-                      style={{
-                        color:
-                          fact.highlight === "green"
-                            ? "#10b981"
-                            : fact.highlight === "blue"
-                              ? themeColors.accentBlue
-                              : themeColors.textPrimary,
-                      }}
-                    >
-                      {fact.value}
-                    </span>
-                  </motion.li>
-                ))}
+                <motion.li className="flex items-center gap-3 text-base md:text-lg font-body" style={{ color: themeColors.textSecondary }}>
+                  <span className="text-2xl">☕</span>
+                  <span className="font-medium" style={{ color: themeColors.textPrimary }}>
+                  Night OWL fueled by caffeine & code
+                  </span>
+                </motion.li>
+                <motion.li className="flex items-center gap-3 text-base md:text-lg font-body" style={{ color: themeColors.textSecondary }}>
+                  <span className="text-2xl">🧪</span>
+                  <span className="font-medium" style={{ color: themeColors.textPrimary }}>
+                    Loves testing wild tech stacks
+                  </span>
+                </motion.li>
+                <motion.li className="flex items-center gap-3 text-base md:text-lg font-body" style={{ color: themeColors.textSecondary }}>
+                  <span className="text-2xl">🏀</span>
+                  <span className="font-medium" style={{ color: themeColors.textPrimary }}>
+                    Switches from React to rebound in seconds
+                  </span>
+                </motion.li>
+                <motion.li className="flex items-center gap-3 text-base md:text-lg font-body" style={{ color: themeColors.textSecondary }}>
+                  <span className="text-2xl">♟️</span>
+                  <span className="font-medium" style={{ color: themeColors.textPrimary }}>
+                    Plays chess like solving bugs — slow, sharp, strategic
+                  </span>
+                </motion.li>
+ 
               </ul>
             </motion.div>
 

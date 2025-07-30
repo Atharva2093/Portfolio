@@ -66,7 +66,7 @@ const Projects = () => {
                 <div className="lg:w-1/2">
                   <div className="relative group overflow-hidden rounded-2xl">
                     <img
-                      src={project.image || "/placeholder.svg?height=300&width=500"}
+                      src={project.image || "public/images/buddy.png"}
                       alt={project.name}
                       className="w-full h-64 lg:h-80 object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
@@ -158,7 +158,7 @@ const Projects = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           <a
-            href="https://github.com/atharvajondhale"
+            href="https://github.com/Atharva2093"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-blue-400 hover:text-purple-400 transition-colors text-lg font-medium group"

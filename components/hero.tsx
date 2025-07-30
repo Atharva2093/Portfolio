@@ -7,7 +7,7 @@ import BlurText from "./ui/blur-text"
 
 // --- Personal Information ---
 const personalInfo = {
-  profileImage: "/placeholder.svg?height=400&width=320&text=Atharva+Jondhale",
+  profileImage: "/images/profiel.png",
   name: "Atharva Jondhale",
   role: "UI/UX & Frontend Developer",
   subRole: "ERP Developer Intern • Creative Director",
@@ -179,7 +179,7 @@ export const Hero = () => {
               <div className="professional-card p-4 rounded-xl">
                 <div className="flex items-center gap-3 text-sm">
                   <Phone size={16} className="text-green-400" />
-                  <span className="text-gray-300">+91 XXXXX XXXXX</span>
+                  <span className="text-gray-300">+91 7588195521</span>
                 </div>
               </div>
             </motion.div>
@@ -194,7 +194,7 @@ export const Hero = () => {
           >
             {/* Main Heading - Fixed Visibility */}
             <motion.h1
-              className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight"
+              className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight mb-28"
               variants={itemVariants}
             >
               <div className="overflow-hidden">
@@ -209,7 +209,7 @@ export const Hero = () => {
             </motion.h1>
 
             {/* Animated Role */}
-            <motion.div variants={itemVariants}>
+            <motion.div variants={itemVariants} className="mt-8 mb-48">
               <div className="text-2xl md:text-3xl lg:text-4xl font-bold font-mono text-cyan-400">
                 <TypeAnimation
                   sequence={[
@@ -236,7 +236,7 @@ export const Hero = () => {
 
             {/* Bio */}
             <motion.p
-              className="text-lg leading-relaxed max-w-3xl mx-auto lg:mx-0 font-body leading-[2.75rem] text-pink-200 shadow-xl md:text-2xl"
+              className="text-lg leading-relaxed max-w-3xl mx-auto lg:mx-0 font-body leading-[2.75rem] text-pink-200 shadow-xl md:text-2xl mt-12 mb-14"
               variants={itemVariants}
             >
               {bioTextContent}
