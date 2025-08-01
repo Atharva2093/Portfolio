@@ -37,10 +37,8 @@ export function Contact() {
   const [activeField, setActiveField] = useState<string | null>(null)
   const formRef = useRef<HTMLFormElement>(null)
 
-  // EmailJS Configuration
-  const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_atharva_portfolio"
-  const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_contact_form"
-  const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "your_public_key"
+  // NOTE: We are removing the redundant variable declarations here,
+  // as we will use the environment variables directly inside the handleSubmit function.
 
   const socialLinks = [
     {
@@ -154,12 +152,12 @@ export function Contact() {
         reply_to: formData.email,
       }
 
-      // Send email using EmailJS
+      // Send email using EmailJS with environment variables
       const result = await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
         templateParams,
-        EMAILJS_PUBLIC_KEY
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       )
 
       if (result.status === 200) {
