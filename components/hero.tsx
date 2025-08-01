@@ -15,11 +15,12 @@ const personalInfo = {
   experience: "2+ Years",
   techStack: ["React", "C#", "TypeScript", "Avalonia UI", "Firebase", "Google Cloud"],
   socialLinks: {
-    github: "https://github.com/atharvajondhale",
+    github: "https://github.com/Atharva2093",
     linkedin: "https://www.linkedin.com/in/atharvajondhale7",
     twitter: "https://x.com/atharva_j2093",
     instagram: "https://www.instagram.com/atharva_j2093",
-    email: "mailto:atharvajondhale7@gmail.com",
+    email: "https://mail.google.com/mail/?view=cm&fs=1&to=atharvajondhale7@gmail.com",
+
   },
 }
 
