@@ -1,8 +1,44 @@
 "use client"
 
 import { ExternalLink, Github } from "lucide-react"
-import { projects } from "../data/projects"
 import { motion } from "framer-motion"
+
+const projects = [
+  {
+    id: 1,
+    name: "BrainBuddy",
+    category: "AI + Web Game",
+    image: "/images/buddy.png",
+    description:
+      "A mental health-focused AI companion featuring gamified adventures that encourage emotional growth and mental wellness.",
+    techStack: ["React", "OpenAI API", "Tailwind CSS", "Firebase", "Vite"],
+    liveDemo: "https://brain-buddy.vercel.app/",
+    github:
+      "https://github.com/Atharva2093/brain-buddy/tree/main/brainy-buddy-adventures-main",
+  },
+  {
+    id: 2,
+    name: "Neon Genesis",
+    category: "3D Portfolio Experience",
+    image: "/images/neon.png",
+    description:
+      "A next-gen portfolio template with futuristic UI, interactive animations, and 3D elements built using modern front-end tools.",
+    techStack: ["Next.js", "Three.js", "Tailwind CSS", "Framer Motion"],
+    liveDemo: "https://neon-genesis.vercel.app/",
+    github: "https://github.com/ankushkhakale/Neon-Genesis",
+  },
+  {
+    id: 3,
+    name: "Atharva's Portfolio",
+    category: "Developer Portfolio",
+    image: "/images/portfolio.png",
+    description:
+      "My personal portfolio website featuring my journey, skills, and interactive UI with animations and responsive design.",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    liveDemo: "https://atharvajondhale.vercel.app/",
+    github: "https://github.com/Atharva2093/Portfolio",
+  },
+]
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -30,7 +66,11 @@ const cardVariants = {
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-transparent" aria-label="Projects">
+    <section
+      id="projects"
+      className="py-20 px-4 sm:px-6 lg:px-8 bg-transparent"
+      aria-label="Projects"
+    >
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="text-center mb-16"
@@ -39,9 +79,12 @@ const Projects = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-blue-400 mb-4">Featured Projects</h2>
+          <h2 className="text-4xl md:text-5xl font-heading font-bold text-blue-400 mb-4">
+            Featured Projects
+          </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Showcasing my latest work in web development, AI integration, and creative design
+            Showcasing my latest work in web development, AI integration, and
+            creative design
           </p>
         </motion.div>
 
@@ -52,7 +95,6 @@ const Projects = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          {/* Clean Grid Layout */}
           <div className="space-y-12">
             {projects.map((project, index) => (
               <motion.div
@@ -66,7 +108,7 @@ const Projects = () => {
                 <div className="lg:w-1/2">
                   <div className="relative group overflow-hidden rounded-2xl">
                     <img
-                      src={project.image || "public/images/buddy.png"}
+                      src={project.image}
                       alt={project.name}
                       className="w-full h-64 lg:h-80 object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
@@ -103,13 +145,19 @@ const Projects = () => {
                     <span className="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm font-medium mb-3">
                       {project.category}
                     </span>
-                    <h3 className="text-2xl lg:text-3xl font-heading font-bold text-white mb-3">{project.name}</h3>
-                    <p className="text-gray-400 leading-relaxed text-lg">{project.description}</p>
+                    <h3 className="text-2xl lg:text-3xl font-heading font-bold text-white mb-3">
+                      {project.name}
+                    </h3>
+                    <p className="text-gray-400 leading-relaxed text-lg">
+                      {project.description}
+                    </p>
                   </div>
 
                   {/* Tech Stack */}
                   <div>
-                    <h4 className="text-white font-semibold mb-3">Built with:</h4>
+                    <h4 className="text-white font-semibold mb-3">
+                      Built with:
+                    </h4>
                     <div className="flex flex-wrap gap-2">
                       {project.techStack.map((tech) => (
                         <span
@@ -165,7 +213,10 @@ const Projects = () => {
           >
             <Github size={20} />
             <span>Explore more projects on GitHub</span>
-            <ExternalLink size={16} className="group-hover:translate-x-1 transition-transform" />
+            <ExternalLink
+              size={16}
+              className="group-hover:translate-x-1 transition-transform"
+            />
           </a>
         </motion.div>
       </div>

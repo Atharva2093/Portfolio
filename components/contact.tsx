@@ -46,7 +46,7 @@ export function Contact() {
     {
       name: "GitHub",
       icon: <Github className="h-5 w-5" />,
-      url: "https://github.com/atharvajondhale",
+      url: "https://github.com/Atharva2093",
       color: "#333",
       hoverColor: "#6e7681",
     },
@@ -78,7 +78,7 @@ export function Contact() {
       icon: <Mail className="h-6 w-6" />,
       title: "Email",
       value: "atharvajondhale7@gmail.com",
-      link: "mailto:atharvajondhale7@gmail.com",
+      link: "https://mail.google.com/mail/?view=cm&fs=1&to=atharvajondhale7@gmail.com",
       color: "#3b82f6",
       description: "Send me an email anytime",
     },

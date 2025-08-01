@@ -170,7 +170,7 @@ const About = (props: AboutProps) => {
     </li>
     <li>
       💼 ERP Developer Intern at 
-      <a href="https://www.praktan.com/" target="_blank" rel="noopener noreferrer"
+      <a href="https://www.google.com/search?gs_ssp=eJzj4tVP1zc0LKiqLMjLzck2YLRSNagwTkpJsTRJtjA1NweyzM2tDCosLdPMTJJNDM0skkzMTM3MvEQKihKzSxLzFEpSkzPy8nPy0zNTiwFwchfW&q=praktan+technologies&rlz=1C1GCEA_en-GBIN1169IN1169&oq=pra&gs_lcrp=EgZjaHJvbWUqFQgBEC4YJxivARjHARiABBiKBRiOBTIGCAAQRRg8MhUIARAuGCcYrwEYxwEYgAQYigUYjgUyDAgCEC4YQxiABBiKBTIGCAMQRRg5MhIIBBAuGEMYrwEYxwEYgAQYigUyDAgFEAAYQxiABBiKBTIGCAYQRRg8MgYIBxBFGDzSAQg0MDQ2ajBqMagCALACAA&sourceid=chrome&ie=UTF-8" target="_blank" rel="noopener noreferrer"
          className="font-semibold text-pink-500 hover:text-pink-400 transition-colors duration-300 no-underline ml-1">
         Praktan Technologies
       </a>
