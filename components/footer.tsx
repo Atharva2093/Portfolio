@@ -86,7 +86,7 @@ export function Footer() {
                 </p>
                 <div className="flex items-center gap-2 text-gray-500 text-sm">
                   <Coffee className="h-4 w-4" />
-                  <span>Powered by coffee and creativity</span>
+                  <span>Powered by tea and creativity</span>
                 </div>
               </motion.div>
             </div>
@@ -207,7 +207,7 @@ export function Footer() {
           >
             <p className="text-gray-400 flex items-center justify-center gap-2">
               © {currentYear} Atharva Jondhale. Made with{" "}
-              <Heart className="h-4 w-4 text-red-400 animate-pulse" /> and lots of coffee.
+              <Heart className="h-4 w-4 text-red-400 animate-pulse" /> and lot of tea.
             </p>
             <p className="text-gray-500 text-sm mt-1">
               Built with Next.js, TypeScript & Tailwind CSS
