@@ -195,7 +195,7 @@ export const Hero = () => {
           >
             {/* Main Heading - Fixed Visibility */}
             <motion.h1
-              className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight mb-28"
+              className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight mb-24" // was mb-10
               variants={itemVariants}
             >
               <div className="overflow-hidden">
@@ -210,8 +210,8 @@ export const Hero = () => {
             </motion.h1>
 
             {/* Animated Role */}
-            <motion.div variants={itemVariants} className="mt-8 mb-48">
-              <div className="text-2xl md:text-3xl lg:text-4xl font-bold font-mono text-cyan-400">
+            <motion.div variants={itemVariants} className="mt-6 mb-2"> {/* increased spacing */}
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold font-mono text-cyan-400 px-4 lg:px-0">
                 <TypeAnimation
                   sequence={[
                     "ERP Developer Intern",
@@ -237,7 +237,7 @@ export const Hero = () => {
 
             {/* Bio */}
             <motion.p
-              className="text-lg leading-relaxed max-w-3xl mx-auto lg:mx-0 font-body leading-[2.75rem] text-pink-200 shadow-xl md:text-2xl mt-12 mb-14"
+              className="text-lg leading-relaxed max-w-3xl mx-auto lg:mx-0 font-body leading-[1.8rem] text-pink-200 shadow-xl md:text-xl mt-6 mb-34 px-4 lg:px-0" // updated mt and mb
               variants={itemVariants}
             >
               {bioTextContent}
