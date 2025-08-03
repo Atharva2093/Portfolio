@@ -47,7 +47,7 @@ const skillsData = [
   },
   {
     name: "C#",
-    icon: "🔷",
+    icon: "🟦",
     color: "#239120",
     category: "Programming",
     level: 80,
@@ -69,7 +69,7 @@ const skillsData = [
   },
   {
     name: "Tailwind CSS",
-    icon: "🎨",
+    icon: "💅",
     color: "#06B6D4",
     category: "Frontend",
     level: 80,
@@ -99,7 +99,7 @@ const skillsData = [
   },
   {
     name: "CSS3",
-    icon: "🎨",
+    icon: "🧵",
     color: "#1572B6",
     category: "Frontend",
     level: 80,
@@ -213,7 +213,7 @@ const skillsData = [
   // Design
   {
     name: "UI/UX Design",
-    icon: "🎨",
+    icon: "🧑‍🎨",
     color: "#FF6B6B",
     category: "Design",
     level: 80,
@@ -233,7 +233,7 @@ const skillsData = [
   },
   {
     name: "Canva",
-    icon: "🎨",
+    icon: "📐",
     color: "#00C4CC",
     category: "Design",
     level: 80,
@@ -274,6 +274,7 @@ const skillsData = [
     proficiency: "Intermediate"
   }
 ];
+
 
 
 
