@@ -218,13 +218,13 @@ export const Hero = () => {
                     2500,
                     "UI/UX Specialist",
                     2500,
-                    "Neon Genesis Co-founder",
+                    "Neon Genesis Core Member",
                     2500,
-                    "Frontend Engineer",
+                    "Frontend Developer",
                     2500,
-                    "Tech Explorer",
+                    "Tech Enthusiast",
                     2500,
-                    "Hackathon Enthusiast",
+                    "Hackathon Participant",
                     2500,
                   ]}
                   wrapper="span"

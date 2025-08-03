@@ -11,8 +11,8 @@ const projects = [
     image: "/images/buddy.png",
     description:
       "A mental health-focused AI companion featuring gamified adventures that encourage emotional growth and mental wellness.",
-    techStack: ["React", "OpenAI API", "Tailwind CSS", "Firebase", "Vite"],
-    liveDemo: "https://brain-buddy.vercel.app/",
+    techStack: ["Typescript", "Nextjs", "Tailwind CSS", "Supabase", "Gemini API"], 
+    liveDemo: "https://brainbuddy-kohl.vercel.app/",
     github:
       "https://github.com/Atharva2093/brain-buddy/tree/main/brainy-buddy-adventures-main",
   },
@@ -23,7 +23,7 @@ const projects = [
     image: "/images/neon.png",
     description:
       "A next-gen portfolio template with futuristic UI, interactive animations, and 3D elements built using modern front-end tools.",
-    techStack: ["Next.js", "Three.js", "Tailwind CSS", "Framer Motion"],
+    techStack: [ "React", "Vite", "Tailwind CSS", "Framer Motion", "Zapier Automation"],
     liveDemo: "https://neon-genesis.vercel.app/",
     github: "https://github.com/ankushkhakale/Neon-Genesis",
   },
@@ -34,7 +34,7 @@ const projects = [
     image: "/images/portfolio.png",
     description:
       "My personal portfolio website featuring my journey, skills, and interactive UI with animations and responsive design.",
-    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Emailjs"],
     liveDemo: "https://atharvajondhale.vercel.app/",
     github: "https://github.com/Atharva2093/Portfolio",
   },

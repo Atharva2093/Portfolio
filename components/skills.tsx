@@ -14,33 +14,13 @@ const themeColors = {
 }
 
 const skillsData = [
-  // Row 1 - Programming & Core
-  {
-    name: "React.js",
-    icon: "⚛️",
-    color: "#61DAFB",
-    category: "Frontend",
-    level: 95,
-    description: "2+ years experience building responsive UIs and state management",
-    projects: ["Neon Genesis", "Portfolio Website"],
-    proficiency: "Advanced"
-  },
-  {
-    name: "C#",
-    icon: "🔷",
-    color: "#239120",
-    category: "Programming",
-    level: 85,
-    description: "Desktop application development with Avalonia UI framework",
-    projects: ["ERP Systems", "Desktop Apps"],
-    proficiency: "Advanced"
-  },
+  // Programming Languages & Core
   {
     name: "TypeScript",
     icon: "🔷",
     color: "#3178C6",
     category: "Programming",
-    level: 85,
+    level: 80,
     description: "Type-safe development for scalable applications",
     projects: ["Full-stack apps", "API Development"],
     proficiency: "Advanced"
@@ -50,40 +30,10 @@ const skillsData = [
     icon: "⚡",
     color: "#F7DF1E",
     category: "Programming",
-    level: 90,
+    level: 70,
     description: "Core language for web development and dynamic interactions",
     projects: ["Interactive UIs", "Web Applications"],
-    proficiency: "Expert"
-  },
-  {
-    name: "Tailwind CSS",
-    icon: "🎨",
-    color: "#06B6D4",
-    category: "Frontend",
-    level: 95,
-    description: "Utility-first CSS framework for rapid UI development",
-    projects: ["Modern Websites", "Component Libraries"],
-    proficiency: "Expert"
-  },
-  {
-    name: "HTML5",
-    icon: "🌐",
-    color: "#E34F26",
-    category: "Frontend",
-    level: 95,
-    description: "Semantic markup and modern web standards",
-    projects: ["Web Applications", "Landing Pages"],
-    proficiency: "Expert"
-  },
-  {
-    name: "CSS3",
-    icon: "🎨",
-    color: "#1572B6",
-    category: "Frontend",
-    level: 90,
-    description: "Advanced styling, animations, and responsive design",
-    projects: ["Custom Designs", "Animations"],
-    proficiency: "Advanced"
+    proficiency: "Intermediate"
   },
   {
     name: "Python",
@@ -95,8 +45,70 @@ const skillsData = [
     projects: ["Data Processing", "Automation"],
     proficiency: "Intermediate"
   },
+  {
+    name: "C#",
+    icon: "🔷",
+    color: "#239120",
+    category: "Programming",
+    level: 80,
+    description: "Desktop application development with Avalonia UI framework",
+    projects: ["ERP Systems", "Desktop Apps"],
+    proficiency: "Advanced"
+  },
 
-  // Row 2 - Backend & Cloud
+  // Frontend
+  {
+    name: "React.js",
+    icon: "⚛️",
+    color: "#61DAFB",
+    category: "Frontend",
+    level: 75,
+    description: "2+ years experience building responsive UIs and state management",
+    projects: ["Neon Genesis", "Portfolio Website"],
+    proficiency: "Advanced"
+  },
+  {
+    name: "Tailwind CSS",
+    icon: "🎨",
+    color: "#06B6D4",
+    category: "Frontend",
+    level: 80,
+    description: "Utility-first CSS framework for rapid UI development",
+    projects: ["Modern Websites", "Component Libraries"],
+    proficiency: "Expert"
+  },
+  {
+    name: "Responsive Design",
+    icon: "📱",
+    color: "#4ECDC4",
+    category: "Frontend",
+    level: 80,
+    description: "Cross-device compatibility and mobile-first design",
+    projects: ["Mobile Apps", "Web Applications"],
+    proficiency: "Expert"
+  },
+  {
+    name: "HTML5",
+    icon: "🌐",
+    color: "#E34F26",
+    category: "Frontend",
+    level: 80,
+    description: "Semantic markup and modern web standards",
+    projects: ["Web Applications", "Landing Pages"],
+    proficiency: "Expert"
+  },
+  {
+    name: "CSS3",
+    icon: "🎨",
+    color: "#1572B6",
+    category: "Frontend",
+    level: 80,
+    description: "Advanced styling, animations, and responsive design",
+    projects: ["Custom Designs", "Animations"],
+    proficiency: "Advanced"
+  },
+
+  // Backend
   {
     name: "Node.js",
     icon: "🟢",
@@ -106,36 +118,6 @@ const skillsData = [
     description: "Server-side JavaScript for scalable applications",
     projects: ["APIs", "Real-time apps"],
     proficiency: "Advanced"
-  },
-  {
-    name: "Firebase",
-    icon: "🔥",
-    color: "#FFCA28",
-    category: "Backend",
-    level: 85,
-    description: "Cloud services for authentication, database, and hosting",
-    projects: ["Web Apps", "Mobile Backend"],
-    proficiency: "Advanced"
-  },
-  {
-    name: "Google Cloud",
-    icon: "☁️",
-    color: "#4285F4",
-    category: "Cloud",
-    level: 80,
-    description: "Cloud infrastructure and deployment solutions",
-    projects: ["App Deployment", "Cloud Services"],
-    proficiency: "Intermediate"
-  },
-  {
-    name: "Avalonia UI",
-    icon: "🖥️",
-    color: "#663399",
-    category: "Desktop",
-    level: 75,
-    description: "Cross-platform desktop application development",
-    projects: ["Desktop Apps", "Business Software"],
-    proficiency: "Intermediate"
   },
   {
     name: "gRPC",
@@ -148,21 +130,71 @@ const skillsData = [
     proficiency: "Intermediate"
   },
   {
+    name: "Firebase",
+    icon: "🔥",
+    color: "#FFCA28",
+    category: "Backend",
+    level: 80,
+    description: "Cloud services for authentication, database, and hosting",
+    projects: ["Web Apps", "Mobile Backend"],
+    proficiency: "Advanced"
+  },
+
+  // Database
+  {
     name: "SQL",
     icon: "🗄️",
     color: "#336791",
     category: "Database",
-    level: 85,
+    level: 80,
     description: "Database design and query optimization",
     projects: ["Data Management", "ERP Systems"],
     proficiency: "Advanced"
   },
+
+  // Cloud
+  {
+    name: "Google Cloud",
+    icon: "☁️",
+    color: "#4285F4",
+    category: "Cloud",
+    level: 80,
+    description: "Cloud infrastructure and deployment solutions",
+    projects: ["App Deployment", "Cloud Services"],
+    proficiency: "Intermediate"
+  },
+
+  // Desktop
+  {
+    name: "Avalonia UI",
+    icon: "🖥️",
+    color: "#663399",
+    category: "Desktop",
+    level: 75,
+    description: "Cross-platform desktop application development",
+    projects: ["Desktop Apps", "Business Software"],
+    proficiency: "Intermediate"
+  },
+
+  // Architecture
+  {
+    name: "MVVM",
+    icon: "🏗️",
+    color: "#8E44AD",
+    category: "Architecture",
+    level: 80,
+    description: "Architectural pattern for scalable applications",
+    projects: ["Enterprise Apps", "Desktop Software"],
+    proficiency: "Advanced"
+  },
+
+  // Tools
   {
     name: "Git",
     icon: "🔀",
     color: "#F05032",
     category: "Tools",
-    level: 85,
+    level: 80,
     description: "Version control and collaborative development",
     projects: ["Team Development", "Code Management"],
     proficiency: "Advanced"
@@ -172,31 +204,31 @@ const skillsData = [
     icon: "🐙",
     color: "#181717",
     category: "Tools",
-    level: 90,
+    level: 80,
     description: "Code hosting, collaboration, and project management",
     projects: ["Open Source", "Team Projects"],
     proficiency: "Expert"
   },
 
-  // Row 3 - Design & Media
+  // Design
+  {
+    name: "UI/UX Design",
+    icon: "🎨",
+    color: "#FF6B6B",
+    category: "Design",
+    level: 80,
+    description: "User experience and interface design",
+    projects: ["App Interfaces", "User Research"],
+    proficiency: "Advanced"
+  },
   {
     name: "Figma",
     icon: "🎯",
     color: "#F24E1E",
     category: "Design",
-    level: 90,
+    level: 80,
     description: "UI/UX design and prototyping",
     projects: ["App Designs", "Wireframes"],
-    proficiency: "Advanced"
-  },
-  {
-    name: "Adobe Premiere",
-    icon: "🎬",
-    color: "#9999FF",
-    category: "Media",
-    level: 85,
-    description: "Video editing and post-production",
-    projects: ["Content Creation", "Video Projects"],
     proficiency: "Advanced"
   },
   {
@@ -204,20 +236,10 @@ const skillsData = [
     icon: "🎨",
     color: "#00C4CC",
     category: "Design",
-    level: 90,
+    level: 80,
     description: "Graphic design and visual content creation",
     projects: ["Social Media", "Marketing Materials"],
     proficiency: "Advanced"
-  },
-  {
-    name: "CapCut",
-    icon: "✂️",
-    color: "#000000",
-    category: "Media",
-    level: 80,
-    description: "Video editing for social media content",
-    projects: ["Short Videos", "Content Creation"],
-    proficiency: "Intermediate"
   },
   {
     name: "Photoshop",
@@ -229,37 +251,31 @@ const skillsData = [
     projects: ["Photo Editing", "Graphics"],
     proficiency: "Intermediate"
   },
+
+  // Media
   {
-    name: "UI/UX Design",
-    icon: "🎨",
-    color: "#FF6B6B",
-    category: "Design",
-    level: 90,
-    description: "User experience and interface design",
-    projects: ["App Interfaces", "User Research"],
-    proficiency: "Advanced"
-  },
-  {
-    name: "Responsive Design",
-    icon: "📱",
-    color: "#4ECDC4",
-    category: "Frontend",
-    level: 95,
-    description: "Cross-device compatibility and mobile-first design",
-    projects: ["Mobile Apps", "Web Applications"],
-    proficiency: "Expert"
-  },
-  {
-    name: "MVVM",
-    icon: "🏗️",
-    color: "#8E44AD",
-    category: "Architecture",
+    name: "Adobe Premiere",
+    icon: "🎬",
+    color: "#9999FF",
+    category: "Media",
     level: 80,
-    description: "Architectural pattern for scalable applications",
-    projects: ["Enterprise Apps", "Desktop Software"],
+    description: "Video editing and post-production",
+    projects: ["Content Creation", "Video Projects"],
     proficiency: "Advanced"
   },
-]
+  {
+    name: "CapCut",
+    icon: "✂️",
+    color: "#000000",
+    category: "Media",
+    level: 80,
+    description: "Video editing for social media content",
+    projects: ["Short Videos", "Content Creation"],
+    proficiency: "Intermediate"
+  }
+];
+
+
 
 // Split skills into 3 rows for different animations
 const row1Skills = skillsData.slice(0, 8)
@@ -427,10 +443,17 @@ export function Skills() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-blue-400 mb-4">Technical Skills</h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-8">
-            Technologies and tools I use to build scalable digital experiences
-          </p>
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-blue-400 mb-3">
+  Technical Skills
+</h2>
+<p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-6">
+  Technologies and tools I use to build scalable digital experiences
+</p>
+<p className="text-sm md:text-base text-blue-300 text-center mb-6">
+  Click any skill icon to see what I use it for and how good I am with it
+</p>
+
+
         </motion.div>
 
         {/* Enhanced Grid View with Click Interactions */}
