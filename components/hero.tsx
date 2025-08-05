@@ -204,7 +204,9 @@ export const Hero = () => {
           >
             {/* Main Heading - Responsive text sizes */}
             <motion.h1
+
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight mb-8 sm:mb-12 lg:mb-28"
+
               variants={itemVariants}
             >
               <div className="overflow-hidden">
@@ -218,9 +220,11 @@ export const Hero = () => {
               </div>
             </motion.h1>
 
+
             {/* Animated Role - Responsive text */}
             <motion.div variants={itemVariants} className="mt-8 mb-8 sm:mb-12 lg:mb-48">
               <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold font-mono text-cyan-400">
+
                 <TypeAnimation
                   sequence={[
                     "ERP Developer Intern",
@@ -246,6 +250,7 @@ export const Hero = () => {
 
             {/* Bio - Responsive text and spacing */}
             <motion.p
+
               className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed max-w-3xl mx-auto lg:mx-0 font-body text-pink-200 shadow-xl mt-8 sm:mt-12 mb-8 sm:mb-14"
               variants={itemVariants}
             >
