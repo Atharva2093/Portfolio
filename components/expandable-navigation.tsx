@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ExpandableTabs } from "@/components/ui/expandable-tabs";
 import { 
   Home, 
@@ -16,11 +16,11 @@ import {
   X
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { AnimatePresence } from "framer-motion";
 
 export function ExpandableNavigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,6 +29,58 @@ export function ExpandableNavigation() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Check if device is mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: Event) => {
+      const target = event.target as HTMLElement;
+      if (isMobileMenuOpen && !target.closest('.mobile-menu-container') && !target.closest('.mobile-menu-button')) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [isMobileMenuOpen]);
+
+  // Close mobile menu on escape key
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [isMobileMenuOpen]);
+
+  // Close mobile menu when window resizes to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024 && isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [isMobileMenuOpen]);
 
   const navigationTabs = [
     { title: "Home", icon: Home },
@@ -63,14 +115,35 @@ export function ExpandableNavigation() {
     { href: "#contact", label: "Contact", icon: Mail },
   ];
 
+  const handleMobileNavClick = (href: string) => {
+    setIsMobileMenuOpen(false);
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
     <header
       className="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent"
     >
-      <nav className="container mx-auto px-6 py-4">
+      <nav className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="text-2xl font-bold">
+          <Link 
+            href="/" 
+            className="text-xl sm:text-2xl font-bold transition-transform hover:scale-105 touch-target"
+            onClick={() => {
+              const homeElement = document.querySelector('#home');
+              if (homeElement) {
+                homeElement.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+          >
             <span className="text-green-400">Atharva</span>
             <span className="text-purple-400">.dev</span>
           </Link>
@@ -89,10 +162,34 @@ export function ExpandableNavigation() {
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden text-slate-300"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="lg:hidden text-slate-300 touch-target hover:bg-gray-800/50 rounded-lg mobile-menu-button min-h-[44px] min-w-[44px]"
+            onClick={toggleMobileMenu}
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMobileMenuOpen}
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            <AnimatePresence mode="wait">
+              {isMobileMenuOpen ? (
+                <motion.div
+                  key="close"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <X size={24} />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="menu"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Menu size={24} />
+                </motion.div>
+              )}
+            </AnimatePresence>
           </Button>
         </div>
 
@@ -103,10 +200,10 @@ export function ExpandableNavigation() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className="lg:hidden mt-4 pb-4 overflow-hidden"
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="lg:hidden mt-4 pb-4 overflow-hidden mobile-menu-container"
             >
-              <div className="flex flex-col space-y-2">
+              <div className="flex flex-col space-y-2 bg-gray-900/80 backdrop-blur-md rounded-xl p-4 border border-gray-800/50 shadow-xl">
                 {mobileNavItems.map((item, index) => (
                   <motion.div
                     key={item.href}
@@ -114,14 +211,14 @@ export function ExpandableNavigation() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
                   >
-                    <Link
-                      href={item.href}
-                      className="flex items-center gap-3 text-slate-300 hover:text-green-400 transition-colors duration-200 p-3 rounded-lg hover:bg-gray-800/50"
-                      onClick={() => setIsMobileMenuOpen(false)}
+                    <button
+                      onClick={() => handleMobileNavClick(item.href)}
+                      className="flex items-center gap-3 text-slate-300 hover:text-green-400 transition-colors duration-200 p-4 rounded-lg hover:bg-gray-800/50 w-full text-left touch-target min-h-[48px] active:bg-gray-700/50"
+                      aria-label={`Navigate to ${item.label} section`}
                     >
-                      <item.icon size={20} />
-                      {item.label}
-                    </Link>
+                      <item.icon size={20} className="flex-shrink-0" />
+                      <span className="text-base font-medium">{item.label}</span>
+                    </button>
                   </motion.div>
                 ))}
               </div>

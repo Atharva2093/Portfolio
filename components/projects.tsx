@@ -2,6 +2,7 @@
 
 import { ExternalLink, Github } from "lucide-react"
 import { motion } from "framer-motion"
+import Image from "next/image"
 
 const projects = [
   {
@@ -35,7 +36,7 @@ const projects = [
     description:
       "My personal portfolio website featuring my journey, skills, and interactive UI with animations and responsive design.",
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Emailjs"],
-    liveDemo: "https://atharvajondhale.vercel.app/",
+    liveDemo: "https://v0-atharva-jondhale-portfolio.vercel.app/",
     github: "https://github.com/Atharva2093/Portfolio",
   },
 ]
@@ -68,21 +69,21 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-transparent"
+      className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-transparent"
       aria-label="Projects"
     >
       <div className="max-w-7xl mx-auto">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-blue-400 mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-blue-400 mb-4">
             Featured Projects
           </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mx-auto px-4">
             Showcasing my latest work in web development, AI integration, and
             creative design
           </p>
@@ -95,24 +96,28 @@ const Projects = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          <div className="space-y-12">
+          <div className="space-y-12 sm:space-y-16">
             {projects.map((project, index) => (
               <motion.div
                 key={project.id}
                 variants={cardVariants}
-                className={`flex flex-col lg:flex-row gap-8 items-center ${
+                className={`flex flex-col lg:flex-row gap-6 sm:gap-8 items-center ${
                   index % 2 === 1 ? "lg:flex-row-reverse" : ""
                 }`}
               >
                 {/* Project Image */}
-                <div className="lg:w-1/2">
+                <div className="w-full lg:w-1/2">
                   <div className="relative group overflow-hidden rounded-2xl">
-                    <img
-                      src={project.image}
-                      alt={project.name}
-                      className="w-full h-64 lg:h-80 object-cover transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
-                    />
+                    <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-80">
+                      <Image
+                        src={project.image}
+                        alt={project.name}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
+                        loading="lazy"
+                      />
+                    </div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                     {/* Overlay Links */}
@@ -121,7 +126,7 @@ const Projects = () => {
                         href={project.liveDemo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full transition-colors"
+                        className="bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full transition-colors touch-target"
                         aria-label="Live Demo"
                       >
                         <ExternalLink size={20} />
@@ -130,7 +135,7 @@ const Projects = () => {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-gray-800 hover:bg-gray-700 text-white p-3 rounded-full transition-colors"
+                        className="bg-gray-800 hover:bg-gray-700 text-white p-3 rounded-full transition-colors touch-target"
                         aria-label="GitHub"
                       >
                         <Github size={20} />
@@ -140,29 +145,29 @@ const Projects = () => {
                 </div>
 
                 {/* Project Content */}
-                <div className="lg:w-1/2 space-y-4">
+                <div className="w-full lg:w-1/2 space-y-4 sm:space-y-6">
                   <div>
                     <span className="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm font-medium mb-3">
                       {project.category}
                     </span>
-                    <h3 className="text-2xl lg:text-3xl font-heading font-bold text-white mb-3">
+                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-heading font-bold text-white mb-3">
                       {project.name}
                     </h3>
-                    <p className="text-gray-400 leading-relaxed text-lg">
+                    <p className="text-gray-400 leading-relaxed text-sm sm:text-base lg:text-lg">
                       {project.description}
                     </p>
                   </div>
 
                   {/* Tech Stack */}
                   <div>
-                    <h4 className="text-white font-semibold mb-3">
+                    <h4 className="text-white font-semibold mb-3 text-sm sm:text-base">
                       Built with:
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {project.techStack.map((tech) => (
                         <span
                           key={tech}
-                          className="bg-gray-800 text-gray-300 text-sm px-3 py-1 rounded-full border border-gray-700 hover:border-blue-400 transition-colors"
+                          className="bg-gray-800 text-gray-300 text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full border border-gray-700 hover:border-blue-400 transition-colors"
                         >
                           {tech}
                         </span>
@@ -171,23 +176,23 @@ const Projects = () => {
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex gap-4 pt-4">
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">
                     <a
                       href={project.liveDemo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-500 hover:to-blue-500 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
+                      className="flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-500 hover:to-blue-500 text-white px-4 sm:px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105 touch-target text-sm sm:text-base"
                     >
-                      <ExternalLink size={18} />
+                      <ExternalLink size={16} className="sm:w-5 sm:h-5" />
                       Live Demo
                     </a>
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 border border-gray-600 hover:border-blue-400 text-gray-400 hover:text-blue-400 px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
+                      className="flex items-center justify-center gap-2 border border-gray-600 hover:border-blue-400 text-gray-400 hover:text-blue-400 px-4 sm:px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105 touch-target text-sm sm:text-base"
                     >
-                      <Github size={18} />
+                      <Github size={16} className="sm:w-5 sm:h-5" />
                       View Code
                     </a>
                   </div>
@@ -199,7 +204,7 @@ const Projects = () => {
 
         {/* Call to Action */}
         <motion.div
-          className="text-center mt-16"
+          className="text-center mt-12 sm:mt-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -209,13 +214,13 @@ const Projects = () => {
             href="https://github.com/Atharva2093"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-blue-400 hover:text-purple-400 transition-colors text-lg font-medium group"
+            className="inline-flex items-center gap-2 text-blue-400 hover:text-purple-400 transition-colors text-base sm:text-lg font-medium group touch-target"
           >
-            <Github size={20} />
+            <Github size={18} className="sm:w-5 sm:h-5" />
             <span>Explore more projects on GitHub</span>
             <ExternalLink
-              size={16}
-              className="group-hover:translate-x-1 transition-transform"
+              size={14}
+              className="sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform"
             />
           </a>
         </motion.div>

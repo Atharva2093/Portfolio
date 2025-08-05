@@ -275,9 +275,6 @@ const skillsData = [
   }
 ];
 
-
-
-
 // Split skills into 3 rows for different animations
 const row1Skills = skillsData.slice(0, 8)
 const row2Skills = skillsData.slice(8, 16)
@@ -286,14 +283,15 @@ const row3Skills = skillsData.slice(16, 24)
 const SkillCard = ({ skill, index, onClick }: { skill: any, index: number, onClick: (skill: any) => void }) => {
   return (
     <motion.div
-      className="flex-shrink-0 mx-4 group cursor-pointer"
+      className="flex-shrink-0 mx-2 sm:mx-4 group cursor-pointer touch-target"
       whileHover={{ scale: 1.1, y: -5 }}
+      whileTap={{ scale: 0.95 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
       onClick={() => onClick(skill)}
     >
-      <div className="relative professional-card rounded-2xl p-6 w-32 h-32 flex flex-col items-center justify-center transition-all duration-300 group-hover:border-blue-400 subtle-glow">
+      <div className="relative professional-card rounded-2xl p-4 sm:p-6 w-24 h-24 sm:w-32 sm:h-32 flex flex-col items-center justify-center transition-all duration-300 group-hover:border-blue-400 subtle-glow">
         {/* Skill Icon */}
-        <div className="text-4xl mb-2 transition-transform duration-300 group-hover:scale-110">{skill.icon}</div>
+        <div className="text-2xl sm:text-4xl mb-1 sm:mb-2 transition-transform duration-300 group-hover:scale-110">{skill.icon}</div>
 
         {/* Skill Name */}
         <h3 className="text-white font-semibold text-xs text-center group-hover:text-blue-400 transition-colors leading-tight">
@@ -301,7 +299,7 @@ const SkillCard = ({ skill, index, onClick }: { skill: any, index: number, onCli
         </h3>
 
         {/* Skill Level Indicator */}
-        <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gray-700 rounded-full overflow-hidden">
+        <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-12 sm:w-16 h-1 bg-gray-700 rounded-full overflow-hidden">
           <motion.div
             className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
             initial={{ width: 0 }}
@@ -322,7 +320,7 @@ const MovingSkillsRow = ({ skills, direction = "left", speed = 50, onSkillClick 
 
   return (
     <div
-      className="relative overflow-hidden py-4"
+      className="relative overflow-hidden py-2 sm:py-4"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -366,25 +364,25 @@ const SkillModal = ({ skill, isOpen, onClose }: { skill: any, isOpen: boolean, o
       >
         <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
         <motion.div
-          className="relative bg-gray-900/95 backdrop-blur-md rounded-2xl p-8 max-w-md w-full border border-gray-700"
+          className="relative bg-gray-900/95 backdrop-blur-md rounded-2xl p-4 sm:p-6 lg:p-8 max-w-sm sm:max-w-md w-full border border-gray-700 max-h-[90vh] overflow-y-auto"
           initial={{ scale: 0.9, y: 20 }}
           animate={{ scale: 1, y: 0 }}
           exit={{ scale: 0.9, y: 20 }}
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="flex items-center gap-4 mb-6">
-            <div className="text-4xl">{skill.icon}</div>
+          <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+            <div className="text-3xl sm:text-4xl">{skill.icon}</div>
             <div>
-              <h3 className="text-2xl font-bold text-white">{skill.name}</h3>
-              <p className="text-gray-400">{skill.category}</p>
+              <h3 className="text-xl sm:text-2xl font-bold text-white">{skill.name}</h3>
+              <p className="text-sm sm:text-base text-gray-400">{skill.category}</p>
             </div>
           </div>
           
-          <div className="space-y-4">
-            <p className="text-gray-300">{skill.description}</p>
+          <div className="space-y-3 sm:space-y-4">
+            <p className="text-sm sm:text-base text-gray-300">{skill.description}</p>
             
             <div>
-              <h4 className="font-semibold text-white mb-2">Proficiency Level</h4>
+              <h4 className="font-semibold text-white mb-2 text-sm sm:text-base">Proficiency Level</h4>
               <div className="flex items-center gap-2">
                 <div className="flex-1 bg-gray-700 rounded-full h-2">
                   <div 
@@ -392,18 +390,18 @@ const SkillModal = ({ skill, isOpen, onClose }: { skill: any, isOpen: boolean, o
                     style={{ width: `${skill.level}%` }}
                   />
                 </div>
-                <span className="text-sm text-gray-400">{skill.level}%</span>
+                <span className="text-xs sm:text-sm text-gray-400">{skill.level}%</span>
               </div>
-              <p className="text-sm text-gray-400 mt-1">{skill.proficiency}</p>
+              <p className="text-xs sm:text-sm text-gray-400 mt-1">{skill.proficiency}</p>
             </div>
             
             <div>
-              <h4 className="font-semibold text-white mb-2">Key Projects</h4>
+              <h4 className="font-semibold text-white mb-2 text-sm sm:text-base">Key Projects</h4>
               <div className="flex flex-wrap gap-2">
                 {skill.projects.map((project: string, index: number) => (
                   <span 
                     key={index}
-                    className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm"
+                    className="px-2 sm:px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs sm:text-sm"
                   >
                     {project}
                   </span>
@@ -414,7 +412,8 @@ const SkillModal = ({ skill, isOpen, onClose }: { skill: any, isOpen: boolean, o
           
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
+            className="absolute top-2 sm:top-4 right-2 sm:right-4 text-gray-400 hover:text-white transition-colors touch-target p-2"
+            aria-label="Close modal"
           >
             ✕
           </button>
@@ -434,31 +433,29 @@ export function Skills() {
   }
 
   return (
-    <section id="skills" className="py-20 bg-transparent overflow-hidden">
-      <div className="container mx-auto px-6">
+    <section id="skills" className="py-12 sm:py-16 lg:py-20 bg-transparent overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-blue-400 mb-3">
-  Technical Skills
-</h2>
-<p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-6">
-  Technologies and tools I use to build scalable digital experiences
-</p>
-<p className="text-sm md:text-base text-blue-300 text-center mb-6">
-  Click any skill icon to see what I use it for and how good I am with it
-</p>
-
-
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-blue-400 mb-3">
+            Technical Skills
+          </h2>
+          <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-4 sm:mb-6 px-4">
+            Technologies and tools I use to build scalable digital experiences
+          </p>
+          <p className="text-xs sm:text-sm md:text-base text-blue-300 text-center mb-6 px-4">
+            Click any skill icon to see what I use it for and how good I am with it
+          </p>
         </motion.div>
 
         {/* Enhanced Grid View with Click Interactions */}
-        <div className="space-y-8">
+        <div className="space-y-6 sm:space-y-8">
           {/* Row 1 - Moving Left */}
           <motion.div
             initial={{ opacity: 0, x: -100 }}
@@ -489,9 +486,6 @@ export function Skills() {
             <MovingSkillsRow skills={row3Skills} direction="left" speed={65} onSkillClick={handleSkillClick} />
           </motion.div>
         </div>
-
-        {/* Interactive Note */}
-        
       </div>
 
       {/* Skill Modal */}

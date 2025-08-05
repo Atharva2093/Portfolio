@@ -21,6 +21,14 @@
 
   * {
     @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
@@ -29,11 +37,44 @@
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     background: var(--bg-primary);
     overflow-x: hidden;
+    min-height: 100vh;
+    /* Prevent horizontal scroll on mobile */
+    width: 100%;
+    max-width: 100vw;
   }
-}
 
-html {
-  scroll-behavior: smooth;
+  /* Ensure all images are responsive */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Touch-friendly button sizes */
+  button, 
+  [role="button"],
+  a[role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Improve focus visibility */
+  *:focus-visible {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 2px;
+  }
+
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 }
 
 .font-heading {
@@ -54,6 +95,49 @@ html {
 
 .font-mono {
   font-family: var(--font-jetbrains-mono), "Fira Code", monospace;
+}
+
+/* Responsive typography utilities */
+@layer utilities {
+  .text-responsive-xs {
+    font-size: clamp(0.75rem, 2vw, 0.875rem);
+  }
+  
+  .text-responsive-sm {
+    font-size: clamp(0.875rem, 2.5vw, 1rem);
+  }
+  
+  .text-responsive-base {
+    font-size: clamp(1rem, 3vw, 1.125rem);
+  }
+  
+  .text-responsive-lg {
+    font-size: clamp(1.125rem, 3.5vw, 1.25rem);
+  }
+  
+  .text-responsive-xl {
+    font-size: clamp(1.25rem, 4vw, 1.5rem);
+  }
+  
+  .text-responsive-2xl {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+  
+  .text-responsive-3xl {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+  
+  .text-responsive-4xl {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+  }
+  
+  .text-responsive-5xl {
+    font-size: clamp(3rem, 10vw, 5rem);
+  }
+  
+  .text-responsive-6xl {
+    font-size: clamp(3.5rem, 12vw, 6rem);
+  }
 }
 
 /* Subtle Animations */
@@ -154,5 +238,59 @@ html {
   }
   50% {
     background-position: 100% 50%;
+  }
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 768px) {
+  .professional-card {
+    backdrop-filter: blur(5px);
+  }
+  
+  /* Reduce particle count on mobile */
+  .particle-reduced {
+    --particle-count: 50;
+  }
+  
+  /* Improve touch targets */
+  .touch-target {
+    min-height: 48px;
+    min-width: 48px;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .professional-card {
+    backdrop-filter: blur(8px);
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .professional-card {
+    border-width: 0.5px;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (orientation: landscape) and (max-height: 500px) {
+  .min-h-screen {
+    min-height: 100vh;
+  }
+}
+
+/* Print styles */
+@media print {
+  .professional-card {
+    background: white !important;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+  }
+  
+  .gradient-text {
+    color: #000 !important;
+    background: none !important;
+    -webkit-text-fill-color: initial !important;
   }
 }

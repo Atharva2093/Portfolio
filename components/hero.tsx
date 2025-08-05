@@ -2,6 +2,7 @@
 
 import React, { useRef, useState } from "react"
 import { motion } from "framer-motion"
+import Image from "next/image"
 import { Github, Linkedin, Twitter, Instagram, Mail, MapPin, Calendar, Phone } from "lucide-react"
 import BlurText from "./ui/blur-text"
 
@@ -20,7 +21,6 @@ const personalInfo = {
     twitter: "https://x.com/atharva_j2093",
     instagram: "https://www.instagram.com/atharva_j2093",
     email: "https://mail.google.com/mail/?view=cm&fs=1&to=atharvajondhale7@gmail.com",
-
   },
 }
 
@@ -62,13 +62,19 @@ const TypeAnimation = ({
   speed = 50,
   repeat = Number.POSITIVE_INFINITY,
   className = "",
+}: {
+  sequence: (string | number)[]
+  wrapper?: React.ComponentType<any> | keyof JSX.IntrinsicElements
+  speed?: number
+  repeat?: number
+  className?: string
 }) => {
   const [currentText, setCurrentText] = useState("")
   const [currentIndex, setCurrentIndex] = useState(0)
 
   React.useEffect(() => {
-    const texts = sequence.filter((_, index) => index % 2 === 0)
-    const delays = sequence.filter((_, index) => index % 2 === 1)
+    const texts = sequence.filter((_, index: number) => index % 2 === 0) as string[]
+    const delays = sequence.filter((_, index: number) => index % 2 === 1) as number[]
 
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % texts.length)
@@ -78,7 +84,7 @@ const TypeAnimation = ({
   }, [sequence, currentIndex])
 
   React.useEffect(() => {
-    const text = sequence[currentIndex * 2] || ""
+    const text = sequence[currentIndex * 2] as string || ""
     let index = 0
     setCurrentText("")
 
@@ -107,11 +113,11 @@ export const Hero = () => {
     <section
       id="home"
       ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-transparent py-8"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-transparent py-8 px-4 sm:px-6 lg:px-8"
       aria-label="Hero section"
     >
-      {/* Subtle Background Elements */}
-      <div className="absolute inset-0 opacity-10">
+      {/* Subtle Background Elements - Hidden on mobile for performance */}
+      <div className="absolute inset-0 opacity-10 hidden md:block">
         <div className="absolute top-20 left-10 w-32 h-32 border border-blue-400 rounded-full animate-pulse"></div>
         <div
           className="absolute bottom-20 right-10 w-24 h-24 border border-purple-400 rounded-full animate-pulse"
@@ -128,9 +134,9 @@ export const Hero = () => {
       </div>
 
       {/* Main Content Container */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 items-center min-h-[90vh]">
-          {/* Profile Image Section - Left Side */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center min-h-[90vh]">
+          {/* Profile Image Section - Top on mobile, Left on desktop */}
           <motion.div
             className="lg:col-span-4 flex flex-col items-center lg:items-start order-1 lg:order-1"
             initial={{ opacity: 0, x: -50 }}
@@ -139,7 +145,7 @@ export const Hero = () => {
           >
             <div className="relative group mb-4">
               <div
-                className="relative w-80 h-96 rounded-2xl overflow-hidden border-2 shadow-2xl transition-all duration-500 group-hover:scale-105 professional-card"
+                className="relative w-64 h-80 sm:w-80 sm:h-96 rounded-2xl overflow-hidden border-2 shadow-2xl transition-all duration-500 group-hover:scale-105 professional-card"
                 style={{
                   borderColor: themeColors.accentBlue,
                   boxShadow: `0 10px 40px rgba(59, 130, 246, 0.2)`,
@@ -147,40 +153,43 @@ export const Hero = () => {
                 onMouseEnter={() => setIsPhotoHovered(true)}
                 onMouseLeave={() => setIsPhotoHovered(false)}
               >
-                <img
+                <Image
                   src={personalInfo.profileImage || "/placeholder.svg"}
                   alt={personalInfo.name}
-                  className={`w-full h-full object-cover transition-all duration-700 ${
+                  fill
+                  className={`object-cover transition-all duration-700 ${
                     isPhotoHovered ? "grayscale-0 scale-110" : "grayscale"
                   }`}
+                  sizes="(max-width: 640px) 256px, (max-width: 768px) 320px, 384px"
+                  priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
             </div>
 
-            {/* Quick Info Cards - Same width as photo */}
+            {/* Quick Info Cards - Responsive width */}
             <motion.div
-              className="w-80 space-y-3"
+              className="w-full max-w-sm sm:max-w-md space-y-3"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
-              <div className="professional-card p-4 rounded-xl">
+              <div className="professional-card p-3 sm:p-4 rounded-xl">
                 <div className="flex items-center gap-3 text-sm">
-                  <MapPin size={16} className="text-blue-400" />
-                  <span className="text-gray-300">{personalInfo.location}</span>
+                  <MapPin size={16} className="text-blue-400 flex-shrink-0" />
+                  <span className="text-gray-300 text-sm sm:text-base">{personalInfo.location}</span>
                 </div>
               </div>
-              <div className="professional-card p-4 rounded-xl">
+              <div className="professional-card p-3 sm:p-4 rounded-xl">
                 <div className="flex items-center gap-3 text-sm">
-                  <Calendar size={16} className="text-purple-400" />
-                  <span className="text-gray-300">{personalInfo.experience} Experience</span>
+                  <Calendar size={16} className="text-purple-400 flex-shrink-0" />
+                  <span className="text-gray-300 text-sm sm:text-base">{personalInfo.experience} Experience</span>
                 </div>
               </div>
-              <div className="professional-card p-4 rounded-xl">
+              <div className="professional-card p-3 sm:p-4 rounded-xl">
                 <div className="flex items-center gap-3 text-sm">
-                  <Phone size={16} className="text-green-400" />
-                  <span className="text-gray-300">+91 7588195521</span>
+                  <Phone size={16} className="text-green-400 flex-shrink-0" />
+                  <span className="text-gray-300 text-sm sm:text-base">+91 7588195521</span>
                 </div>
               </div>
             </motion.div>
@@ -193,9 +202,9 @@ export const Hero = () => {
             animate="visible"
             variants={heroContentVariants}
           >
-            {/* Main Heading - Fixed Visibility */}
+            {/* Main Heading - Responsive text sizes */}
             <motion.h1
-              className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight mb-28"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight mb-8 sm:mb-12 lg:mb-28"
               variants={itemVariants}
             >
               <div className="overflow-hidden">
@@ -209,9 +218,9 @@ export const Hero = () => {
               </div>
             </motion.h1>
 
-            {/* Animated Role */}
-            <motion.div variants={itemVariants} className="mt-8 mb-48">
-              <div className="text-2xl md:text-3xl lg:text-4xl font-bold font-mono text-cyan-400">
+            {/* Animated Role - Responsive text */}
+            <motion.div variants={itemVariants} className="mt-8 mb-8 sm:mb-12 lg:mb-48">
+              <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold font-mono text-cyan-400">
                 <TypeAnimation
                   sequence={[
                     "ERP Developer Intern",
@@ -235,9 +244,9 @@ export const Hero = () => {
               </div>
             </motion.div>
 
-            {/* Bio */}
+            {/* Bio - Responsive text and spacing */}
             <motion.p
-              className="text-lg leading-relaxed max-w-3xl mx-auto lg:mx-0 font-body leading-[2.75rem] text-pink-200 shadow-xl md:text-2xl mt-12 mb-14"
+              className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed max-w-3xl mx-auto lg:mx-0 font-body text-pink-200 shadow-xl mt-8 sm:mt-12 mb-8 sm:mb-14"
               variants={itemVariants}
             >
               {bioTextContent}
@@ -250,15 +259,15 @@ export const Hero = () => {
             <motion.div variants={itemVariants} className="flex flex-wrap gap-8 pt-4"></motion.div>
           </motion.div>
 
-          {/* Social Links & Stats - Right Side */}
+          {/* Social Links & Stats - Right Side / Bottom on mobile */}
           <motion.div
-            className="lg:col-span-2 flex flex-col gap-6 order-3 lg:order-3 lg:pt-8 lg:pl-4 items-end"
+            className="lg:col-span-2 flex flex-col gap-6 order-3 lg:order-3 lg:pt-8 lg:pl-4 items-center lg:items-end"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
           >
-            {/* Social Links - Moved more to the right */}
-            <div className="flex flex-row gap-6 justify-center lg:justify-start lg:flex-col tracking-normal lg:items-start">
+            {/* Social Links - Responsive layout */}
+            <div className="flex flex-row gap-4 sm:gap-6 justify-center lg:justify-start lg:flex-col tracking-normal lg:items-start">
               <SocialIconLink href={personalInfo.socialLinks.github} icon={Github} name="GitHub" />
               <SocialIconLink href={personalInfo.socialLinks.linkedin} icon={Linkedin} name="LinkedIn" />
               <SocialIconLink href={personalInfo.socialLinks.twitter} icon={Twitter} name="Twitter" />
@@ -281,7 +290,7 @@ export const Hero = () => {
 }
 
 // Enhanced Social Icon Component with Sliding Attached Tooltip
-const SocialIconLink = ({ href, icon: IconComponent, name }) => {
+const SocialIconLink = ({ href, icon: IconComponent, name }: { href: string; icon: React.ElementType; name: string }) => {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
@@ -294,23 +303,25 @@ const SocialIconLink = ({ href, icon: IconComponent, name }) => {
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center justify-center w-12 h-12 rounded-xl transition-all duration-300 backdrop-blur-sm border professional-card relative overflow-hidden"
+        className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-xl transition-all duration-300 backdrop-blur-sm border professional-card relative overflow-hidden touch-target"
         style={{
           borderColor: isHovered ? "#06b6d4" : "rgba(148, 163, 184, 0.2)",
         }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
+        aria-label={`Visit ${name} profile`}
       >
         <IconComponent
-          size={20}
+          size={18}
+          className="sm:w-5 sm:h-5"
           style={{
             color: isHovered ? "#06b6d4" : "#f8fafc",
           }}
         />
 
-        {/* Sliding Attached Tooltip */}
+        {/* Sliding Attached Tooltip - Hidden on mobile */}
         <motion.div
-          className="absolute right-full top-0 bottom-0 flex items-center pointer-events-none"
+          className="absolute right-full top-0 bottom-0 flex items-center pointer-events-none hidden lg:flex"
           initial={{ width: 0, opacity: 0 }}
           animate={isHovered ? { width: "auto", opacity: 1 } : { width: 0, opacity: 0 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
