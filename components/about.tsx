@@ -90,13 +90,13 @@ const About = (props: AboutProps) => {
   }
 
   return (
-    <section id="about" className="py-16 relative overflow-hidden bg-transparent" aria-label="About Me">
+    <section id="about" className="py-12 sm:py-16 lg:py-20 relative overflow-hidden bg-transparent" aria-label="About Me">
       <div
         ref={sectionRef}
-        className="relative z-10 w-full max-w-screen-2xl mx-auto px-4 md:px-8 flex flex-col gap-12 items-center"
+        className="relative z-10 w-full max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-8 sm:gap-12 items-center"
       >
         <motion.h2
-          className="relative inline-block mb-10 z-20 font-heading font-bold text-4xl md:text-5xl"
+          className="relative inline-block mb-6 sm:mb-10 z-20 font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-center"
           style={{ color: themeColors.accentBlue }}
           initial="hidden"
           animate={isSectionIntersecting ? "visible" : "hidden"}
@@ -109,10 +109,10 @@ const About = (props: AboutProps) => {
           />
         </motion.h2>
 
-        <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row gap-10 md:gap-16 relative z-20">
+        <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 sm:gap-10 lg:gap-16 relative z-20">
           <motion.div
             ref={leftPanelRef}
-            className="flex-1 min-w-[300px] p-6 md:p-8 rounded-2xl relative professional-card"
+            className="flex-1 min-w-0 p-4 sm:p-6 lg:p-8 rounded-2xl relative professional-card"
             initial="hidden"
             animate={isSectionIntersecting ? "visible" : "hidden"}
             variants={floatIn}
@@ -128,16 +128,16 @@ const About = (props: AboutProps) => {
                   animate="visible"
                   exit="exit"
                   variants={floatIn}
-                  className="w-full h-[320px] flex flex-col items-center justify-center text-center cursor-pointer select-none"
+                  className="w-full h-[280px] sm:h-[320px] flex flex-col items-center justify-center text-center cursor-pointer select-none"
                 >
                   <h3
-                    className="text-5xl md:text-6xl font-heading font-extrabold mb-6 tracking-tight drop-shadow-lg"
+                    className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold mb-4 sm:mb-6 tracking-tight drop-shadow-lg"
                     style={{ color: themeColors.accentPurple }}
                   >
                     Who Am I?
                   </h3>
                   <p
-                    className="text-lg md:text-2xl leading-relaxed max-w-2xl mx-auto font-body opacity-80"
+                    className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed max-w-2xl mx-auto font-body opacity-80 px-4"
                     style={{ color: themeColors.textPrimary }}
                   >
                     (Hover to uncover my story)
@@ -152,117 +152,111 @@ const About = (props: AboutProps) => {
                   variants={floatIn}
                   className="w-full text-left"
                 >
-        <div className="space-y-6 text-white font-body leading-relaxed">
-  <p className="text-xl font-semibold font-sans">
-    Hey! I’m <span className="text-pink-500 font-semibold">Atharva Jondhale</span> — a tech enthusiast passionate about building sleek, high-performance digital experiences.
-    I blend creativity with code to craft interfaces that feel <span className="text-pink-500 font-semibold">fresh</span>, intuitive, and genuinely <span className="text-pink-500 font-semibold">fun</span> to use.
-    When I’m not coding, I’m exploring new tools, prototyping ideas, or leveling up my dev game.
-  </p>
+                  <div className="space-y-4 sm:space-y-6 text-white font-body leading-relaxed">
+                    <p className="text-base sm:text-lg md:text-xl font-semibold font-sans">
+                      Hey! I'm <span className="text-pink-500 font-semibold">Atharva Jondhale</span> — a tech enthusiast passionate about building sleek, high-performance digital experiences.
+                      I blend creativity with code to craft interfaces that feel <span className="text-pink-500 font-semibold">fresh</span>, intuitive, and genuinely <span className="text-pink-500 font-semibold">fun</span> to use.
+                      When I'm not coding, I'm exploring new tools, prototyping ideas, or leveling up my dev game.
+                    </p>
 
-  <ul className="list-none space-y-3 text-white/90 text-lg font-normal mt-4">
-    <li>🎓 <span className="font-semibold">Computer Engineering student</span> at MCOERC, Nashik</li>
-    <li>
-      🚀 Building full-stack projects at 
-      <a href="https://neon-genesis.vercel.app/" target="_blank" rel="noopener noreferrer"
-         className="font-semibold text-pink-500 hover:text-pink-400 transition-colors duration-300 no-underline ml-1">
-        Neon Genesis
-      </a>
-    </li>
-    <li>
-      💼 ERP Developer Intern at 
-      <a href="https://www.google.com/search?gs_ssp=eJzj4tVP1zc0LKiqLMjLzck2YLRSNagwTkpJsTRJtjA1NweyzM2tDCosLdPMTJJNDM0skkzMTM3MvEQKihKzSxLzFEpSkzPy8nPy0zNTiwFwchfW&q=praktan+technologies&rlz=1C1GCEA_en-GBIN1169IN1169&oq=pra&gs_lcrp=EgZjaHJvbWUqFQgBEC4YJxivARjHARiABBiKBRiOBTIGCAAQRRg8MhUIARAuGCcYrwEYxwEYgAQYigUYjgUyDAgCEC4YQxiABBiKBTIGCAMQRRg5MhIIBBAuGEMYrwEYxwEYgAQYigUyDAgFEAAYQxiABBiKBTIGCAYQRRg8MgYIBxBFGDzSAQg0MDQ2ajBqMagCALACAA&sourceid=chrome&ie=UTF-8" target="_blank" rel="noopener noreferrer"
-         className="font-semibold text-pink-500 hover:text-pink-400 transition-colors duration-300 no-underline ml-1">
-        Praktan Technologies
-      </a>
-    </li>
-    <li>🎨 Specializing in frontend development and UI/UX design</li>
-    <li>🎭 Passionate about creative coding, motion, and visuals</li>
-    <li>🌐 Builds immersive, responsive apps for all screens</li>
-    <li>🧰 Fluent in React, Tailwind CSS, Framer Motion, gRPC, MVVM</li>
-    <li>💡 Always experimenting, always solving</li>
-    <li>🤝 Thrives in collaborative, agile environments</li>
-    <li>📊 Experienced in building scalable, data-driven systems</li>
-<li>📸 Media production & tech event coverage at MCOERC</li>
-
-  </ul>
-</div>
-
-
-
-
+                    <ul className="list-none space-y-2 sm:space-y-3 text-white/90 text-sm sm:text-base lg:text-lg font-normal mt-4">
+                      <li>🎓 <span className="font-semibold">Computer Engineering student</span> at MCOERC, Nashik</li>
+                      <li>
+                        🚀 Building full-stack projects at 
+                        <a href="https://neon-genesis.vercel.app/" target="_blank" rel="noopener noreferrer"
+                           className="font-semibold text-pink-500 hover:text-pink-400 transition-colors duration-300 no-underline ml-1">
+                          Neon Genesis
+                        </a>
+                      </li>
+                      <li>
+                        💼 ERP Developer Intern at 
+                        <a href="https://www.google.com/search?gs_ssp=eJzj4tVP1zc0LKiqLMjLzck2YLRSNagwTkpJsTRJtjA1NweyzM2tDCosLdPMTJJNDM0skkzMTM3MvEQKihKzSxLzFEpSkzPy8nPy0zNTiwFwchfW&q=praktan+technologies&rlz=1C1GCEA_en-GBIN1169IN1169&oq=pra&gs_lcrp=EgZjaHJvbWUqFQgBEC4YJxivARjHARiABBiKBRiOBTIGCAAQRRg8MhUIARAuGCcYrwEYxwEYgAQYigUYjgUyDAgCEC4YQxiABBiKBTIGCAMQRRg5MhIIBBAuGEMYrwEYxwEYgAQYigUyDAgFEAAYQxiABBiKBTIGCAYQRRg8MgYIBxBFGDzSAQg0MDQ2ajBqMagCALACAA&sourceid=chrome&ie=UTF-8" target="_blank" rel="noopener noreferrer"
+                           className="font-semibold text-pink-500 hover:text-pink-400 transition-colors duration-300 no-underline ml-1">
+                          Praktan Technologies
+                        </a>
+                      </li>
+                      <li>🎨 Specializing in frontend development and UI/UX design</li>
+                      <li>🎭 Passionate about creative coding, motion, and visuals</li>
+                      <li>🌐 Builds immersive, responsive apps for all screens</li>
+                      <li>🧰 Fluent in React, Tailwind CSS, Framer Motion, gRPC, MVVM</li>
+                      <li>💡 Always experimenting, always solving</li>
+                      <li>🤝 Thrives in collaborative, agile environments</li>
+                      <li>📊 Experienced in building scalable, data-driven systems</li>
+                      <li>📸 Media production & tech event coverage at MCOERC</li>
+                    </ul>
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>
           </motion.div>
 
-          <div className="flex-1 flex flex-col gap-10 min-w-[300px] max-w-[450px]">
+          <div className="flex-1 flex flex-col gap-6 sm:gap-8 lg:gap-10 min-w-0 max-w-full lg:max-w-[450px]">
             <motion.div
-              className="p-6 rounded-2xl relative professional-card"
+              className="p-4 sm:p-6 rounded-2xl relative professional-card"
               initial="hidden"
               animate={isSectionIntersecting ? "visible" : "hidden"}
               variants={floatIn}
               custom={1}
               whileHover={{ scale: 1.01 }}
             >
-              <h3 className="text-xl font-heading font-bold mb-5" style={{ color: themeColors.accentCyan }}>
+              <h3 className="text-lg sm:text-xl font-heading font-bold mb-4 sm:mb-5" style={{ color: themeColors.accentCyan }}>
                 Quick Facts
               </h3>
-              <ul className="space-y-4">
-                <motion.li className="flex items-center gap-3 text-base md:text-lg font-body" style={{ color: themeColors.textSecondary }}>
-                  <span className="text-2xl">☕</span>
+              <ul className="space-y-3 sm:space-y-4">
+                <motion.li className="flex items-center gap-3 text-sm sm:text-base lg:text-lg font-body" style={{ color: themeColors.textSecondary }}>
+                  <span className="text-xl sm:text-2xl flex-shrink-0">☕</span>
                   <span className="font-medium" style={{ color: themeColors.textPrimary }}>
-                  Night OWL fueled by caffeine & code
+                    Night OWL fueled by caffeine & code
                   </span>
                 </motion.li>
-                <motion.li className="flex items-center gap-3 text-base md:text-lg font-body" style={{ color: themeColors.textSecondary }}>
-                  <span className="text-2xl">🧪</span>
+                <motion.li className="flex items-center gap-3 text-sm sm:text-base lg:text-lg font-body" style={{ color: themeColors.textSecondary }}>
+                  <span className="text-xl sm:text-2xl flex-shrink-0">🧪</span>
                   <span className="font-medium" style={{ color: themeColors.textPrimary }}>
                     Loves testing wild tech stacks
                   </span>
                 </motion.li>
-                <motion.li className="flex items-center gap-3 text-base md:text-lg font-body" style={{ color: themeColors.textSecondary }}>
-                  <span className="text-2xl">🏀</span>
+                <motion.li className="flex items-center gap-3 text-sm sm:text-base lg:text-lg font-body" style={{ color: themeColors.textSecondary }}>
+                  <span className="text-xl sm:text-2xl flex-shrink-0">🏀</span>
                   <span className="font-medium" style={{ color: themeColors.textPrimary }}>
                     Switches from React to rebound in seconds
                   </span>
                 </motion.li>
-                <motion.li className="flex items-center gap-3 text-base md:text-lg font-body" style={{ color: themeColors.textSecondary }}>
-                  <span className="text-2xl">♟️</span>
+                <motion.li className="flex items-center gap-3 text-sm sm:text-base lg:text-lg font-body" style={{ color: themeColors.textSecondary }}>
+                  <span className="text-xl sm:text-2xl flex-shrink-0">♟️</span>
                   <span className="font-medium" style={{ color: themeColors.textPrimary }}>
                     Plays chess like solving bugs — slow, sharp, strategic
                   </span>
                 </motion.li>
- 
               </ul>
             </motion.div>
 
             <motion.div
-              className="p-6 rounded-2xl relative professional-card"
+              className="p-4 sm:p-6 rounded-2xl relative professional-card"
               initial="hidden"
               animate={isSectionIntersecting ? "visible" : "hidden"}
               variants={floatIn}
               custom={2}
               whileHover={{ scale: 1.01 }}
             >
-              <h3 className="text-xl font-heading font-bold mb-5" style={{ color: themeColors.accentPurple }}>
+              <h3 className="text-lg sm:text-xl font-heading font-bold mb-4 sm:mb-5" style={{ color: themeColors.accentPurple }}>
                 My Expertise
               </h3>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4">
                 {data.interests.map((interest) => (
                   <motion.div
                     key={interest.label}
-                    className="flex flex-col items-center justify-center gap-1 px-4 py-3 rounded-xl shadow-md cursor-pointer select-none professional-card"
+                    className="flex flex-col items-center justify-center gap-1 px-3 sm:px-4 py-3 sm:py-3 rounded-xl shadow-md cursor-pointer select-none professional-card"
                     whileHover={{
                       scale: 1.08,
                       backgroundColor: "rgba(59, 130, 246, 0.1)",
                     }}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   >
-                    <span className="text-2xl" style={{ color: themeColors.accentBlue }}>
+                    <span className="text-xl sm:text-2xl" style={{ color: themeColors.accentBlue }}>
                       {interest.icon}
                     </span>
                     <span
-                      className="text-center text-sm font-medium font-body"
+                      className="text-center text-xs sm:text-sm font-medium font-body"
                       style={{ color: themeColors.textPrimary }}
                     >
                       {interest.label}
