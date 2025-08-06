@@ -64,10 +64,10 @@ export function Footer() {
         <div className="absolute bottom-1/2 left-1/4 w-16 h-16 border border-cyan-400 rounded-full animate-pulse" style={{ animationDelay: "2s" }}></div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Main Footer Content */}
-        <div className="py-16">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="py-12 sm:py-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {/* Brand Section */}
             <div>
               <motion.div
@@ -76,11 +76,11 @@ export function Footer() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <div className="text-3xl font-bold mb-4">
+                <div className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">
                   <span className="text-blue-400">Atharva</span>
                   <span className="text-purple-400">.dev</span>
                 </div>
-                <p className="text-gray-400 mb-6 leading-relaxed">
+                <p className="text-gray-400 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
                   Building scalable digital experiences, one line of code at a time. 
                   Passionate about creating innovative solutions that make a difference.
                 </p>
@@ -99,8 +99,8 @@ export function Footer() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
-                <h3 className="text-white font-semibold text-lg mb-4">Quick Links</h3>
-                <ul className="space-y-3">
+                <h3 className="text-white font-semibold text-base sm:text-lg mb-3 sm:mb-4">Quick Links</h3>
+                <ul className="space-y-2 sm:space-y-3">
                   {quickLinks.map((link, index) => (
                     <motion.li
                       key={index}
@@ -111,7 +111,7 @@ export function Footer() {
                     >
                       <a
                         href={link.href}
-                        className="flex items-center gap-2 text-gray-400 hover:text-blue-400 transition-colors duration-300 group"
+                        className="flex items-center gap-2 text-gray-400 hover:text-blue-400 transition-colors duration-300 group text-sm sm:text-base touch-target"
                       >
                         <span className="group-hover:scale-110 transition-transform duration-300">
                           {link.icon}
@@ -132,8 +132,8 @@ export function Footer() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <h3 className="text-white font-semibold text-lg mb-4">Stay Updated</h3>
-                <p className="text-gray-400 text-sm mb-4">
+                <h3 className="text-white font-semibold text-base sm:text-lg mb-3 sm:mb-4">Stay Updated</h3>
+                <p className="text-gray-400 text-xs sm:text-sm mb-3 sm:mb-4">
                   Get notified about new projects and tech insights.
                 </p>
                 <form onSubmit={handleNewsletterSubmit} className="space-y-3">
@@ -142,12 +142,12 @@ export function Footer() {
                     placeholder="Enter your email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all duration-300"
+                    className="w-full px-3 sm:px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 text-sm sm:text-base"
                     required
                   />
                   <button
                     type="submit"
-                    className="w-full px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-500 hover:to-blue-500 text-white rounded-lg font-medium transition-all duration-300 hover:scale-105"
+                    className="w-full px-3 sm:px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-500 hover:to-blue-500 text-white rounded-lg font-medium transition-all duration-300 hover:scale-105 text-sm sm:text-base touch-target"
                   >
                     Subscribe
                   </button>
@@ -171,9 +171,9 @@ export function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-12 pt-8 border-t border-gray-800"
+            className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-gray-800"
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {additionalInfo.map((info, index) => (
                 <motion.div
                   key={index}
@@ -181,13 +181,13 @@ export function Footer() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="flex items-start gap-3 p-4 bg-gray-900/30 rounded-lg border border-gray-800 hover:border-gray-700 transition-all duration-300"
+                  className="flex items-start gap-3 p-3 sm:p-4 bg-gray-900/30 rounded-lg border border-gray-800 hover:border-gray-700 transition-all duration-300"
                 >
                   <div className="text-blue-400 mt-1">
                     {info.icon}
                   </div>
                   <div>
-                    <p className="text-white font-medium text-sm">{info.text}</p>
+                    <p className="text-white font-medium text-xs sm:text-sm">{info.text}</p>
                     <p className="text-gray-500 text-xs mt-1">{info.description}</p>
                   </div>
                 </motion.div>
@@ -224,10 +224,10 @@ export function Footer() {
         viewport={{ once: true }}
         whileHover={{ scale: 1.1, y: -5 }}
         whileTap={{ scale: 0.95 }}
-        className="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-500 hover:to-blue-500 text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 z-50"
+        className="fixed bottom-4 sm:bottom-8 right-4 sm:right-8 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-500 hover:to-blue-500 text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 z-50 touch-target"
         aria-label="Scroll to top"
       >
-        <ArrowUp className="h-5 w-5" />
+        <ArrowUp className="h-4 w-4 sm:h-5 sm:w-5" />
       </motion.button>
     </footer>
   )

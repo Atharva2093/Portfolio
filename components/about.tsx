@@ -93,10 +93,10 @@ const About = (props: AboutProps) => {
     <section id="about" className="py-12 sm:py-16 lg:py-20 relative overflow-hidden bg-transparent" aria-label="About Me">
       <div
         ref={sectionRef}
-        className="relative z-10 w-full max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-8 sm:gap-12 items-center"
+        className="relative z-10 w-full max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-6 sm:gap-8 lg:gap-12 items-center"
       >
         <motion.h2
-          className="relative inline-block mb-6 sm:mb-10 z-20 font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-center"
+          className="relative inline-block mb-6 sm:mb-8 lg:mb-10 z-20 font-heading font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center"
           style={{ color: themeColors.accentBlue }}
           initial="hidden"
           animate={isSectionIntersecting ? "visible" : "hidden"}
@@ -109,7 +109,7 @@ const About = (props: AboutProps) => {
           />
         </motion.h2>
 
-        <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 sm:gap-10 lg:gap-16 relative z-20">
+        <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-16 relative z-20">
           <motion.div
             ref={leftPanelRef}
             className="flex-1 min-w-0 p-4 sm:p-6 lg:p-8 rounded-2xl relative professional-card"
@@ -128,16 +128,16 @@ const About = (props: AboutProps) => {
                   animate="visible"
                   exit="exit"
                   variants={floatIn}
-                  className="w-full h-[280px] sm:h-[320px] flex flex-col items-center justify-center text-center cursor-pointer select-none"
+                  className="w-full h-[200px] sm:h-[280px] lg:h-[320px] flex flex-col items-center justify-center text-center cursor-pointer select-none"
                 >
                   <h3
-                    className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold mb-4 sm:mb-6 tracking-tight drop-shadow-lg"
+                    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-heading font-extrabold mb-3 sm:mb-4 lg:mb-6 tracking-tight drop-shadow-lg"
                     style={{ color: themeColors.accentPurple }}
                   >
                     Who Am I?
                   </h3>
                   <p
-                    className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed max-w-2xl mx-auto font-body opacity-80 px-4"
+                    className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-relaxed max-w-2xl mx-auto font-body opacity-80 px-4"
                     style={{ color: themeColors.textPrimary }}
                   >
                     (Hover to uncover my story)
@@ -152,14 +152,14 @@ const About = (props: AboutProps) => {
                   variants={floatIn}
                   className="w-full text-left"
                 >
-                  <div className="space-y-4 sm:space-y-6 text-white font-body leading-relaxed">
-                    <p className="text-base sm:text-lg md:text-xl font-semibold font-sans">
+                  <div className="space-y-3 sm:space-y-4 lg:space-y-6 text-white font-body leading-relaxed">
+                    <p className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold font-sans">
                       Hey! I'm <span className="text-pink-500 font-semibold">Atharva Jondhale</span> — a tech enthusiast passionate about building sleek, high-performance digital experiences.
                       I blend creativity with code to craft interfaces that feel <span className="text-pink-500 font-semibold">fresh</span>, intuitive, and genuinely <span className="text-pink-500 font-semibold">fun</span> to use.
                       When I'm not coding, I'm exploring new tools, prototyping ideas, or leveling up my dev game.
                     </p>
 
-                    <ul className="list-none space-y-2 sm:space-y-3 text-white/90 text-sm sm:text-base lg:text-lg font-normal mt-4">
+                    <ul className="list-none space-y-2 sm:space-y-3 text-white/90 text-xs sm:text-sm md:text-base lg:text-lg font-normal mt-3 sm:mt-4">
                       <li>🎓 <span className="font-semibold">Computer Engineering student</span> at MCOERC, Nashik</li>
                       <li>
                         🚀 Building full-stack projects at 
@@ -190,7 +190,7 @@ const About = (props: AboutProps) => {
             </AnimatePresence>
           </motion.div>
 
-          <div className="flex-1 flex flex-col gap-6 sm:gap-8 lg:gap-10 min-w-0 max-w-full lg:max-w-[450px]">
+          <div className="flex-1 flex flex-col gap-4 sm:gap-6 lg:gap-8 min-w-0 max-w-full lg:max-w-[450px]">
             <motion.div
               className="p-4 sm:p-6 rounded-2xl relative professional-card"
               initial="hidden"
@@ -199,30 +199,30 @@ const About = (props: AboutProps) => {
               custom={1}
               whileHover={{ scale: 1.01 }}
             >
-              <h3 className="text-lg sm:text-xl font-heading font-bold mb-4 sm:mb-5" style={{ color: themeColors.accentCyan }}>
+              <h3 className="text-base sm:text-lg md:text-xl font-heading font-bold mb-3 sm:mb-4 lg:mb-5" style={{ color: themeColors.accentCyan }}>
                 Quick Facts
               </h3>
-              <ul className="space-y-3 sm:space-y-4">
-                <motion.li className="flex items-center gap-3 text-sm sm:text-base lg:text-lg font-body" style={{ color: themeColors.textSecondary }}>
-                  <span className="text-xl sm:text-2xl flex-shrink-0">☕</span>
+              <ul className="space-y-2 sm:space-y-3 lg:space-y-4">
+                <motion.li className="flex items-center gap-3 text-xs sm:text-sm md:text-base lg:text-lg font-body" style={{ color: themeColors.textSecondary }}>
+                  <span className="text-lg sm:text-xl md:text-2xl flex-shrink-0">☕</span>
                   <span className="font-medium" style={{ color: themeColors.textPrimary }}>
                     Night OWL fueled by caffeine & code
                   </span>
                 </motion.li>
-                <motion.li className="flex items-center gap-3 text-sm sm:text-base lg:text-lg font-body" style={{ color: themeColors.textSecondary }}>
-                  <span className="text-xl sm:text-2xl flex-shrink-0">🧪</span>
+                <motion.li className="flex items-center gap-3 text-xs sm:text-sm md:text-base lg:text-lg font-body" style={{ color: themeColors.textSecondary }}>
+                  <span className="text-lg sm:text-xl md:text-2xl flex-shrink-0">🧪</span>
                   <span className="font-medium" style={{ color: themeColors.textPrimary }}>
                     Loves testing wild tech stacks
                   </span>
                 </motion.li>
-                <motion.li className="flex items-center gap-3 text-sm sm:text-base lg:text-lg font-body" style={{ color: themeColors.textSecondary }}>
-                  <span className="text-xl sm:text-2xl flex-shrink-0">🏀</span>
+                <motion.li className="flex items-center gap-3 text-xs sm:text-sm md:text-base lg:text-lg font-body" style={{ color: themeColors.textSecondary }}>
+                  <span className="text-lg sm:text-xl md:text-2xl flex-shrink-0">🏀</span>
                   <span className="font-medium" style={{ color: themeColors.textPrimary }}>
                     Switches from React to rebound in seconds
                   </span>
                 </motion.li>
-                <motion.li className="flex items-center gap-3 text-sm sm:text-base lg:text-lg font-body" style={{ color: themeColors.textSecondary }}>
-                  <span className="text-xl sm:text-2xl flex-shrink-0">♟️</span>
+                <motion.li className="flex items-center gap-3 text-xs sm:text-sm md:text-base lg:text-lg font-body" style={{ color: themeColors.textSecondary }}>
+                  <span className="text-lg sm:text-xl md:text-2xl flex-shrink-0">♟️</span>
                   <span className="font-medium" style={{ color: themeColors.textPrimary }}>
                     Plays chess like solving bugs — slow, sharp, strategic
                   </span>
@@ -238,21 +238,21 @@ const About = (props: AboutProps) => {
               custom={2}
               whileHover={{ scale: 1.01 }}
             >
-              <h3 className="text-lg sm:text-xl font-heading font-bold mb-4 sm:mb-5" style={{ color: themeColors.accentPurple }}>
+              <h3 className="text-base sm:text-lg md:text-xl font-heading font-bold mb-3 sm:mb-4 lg:mb-5" style={{ color: themeColors.accentPurple }}>
                 My Expertise
               </h3>
-              <div className="grid grid-cols-2 gap-3 sm:gap-4">
+              <div className="grid grid-cols-2 gap-2 sm:gap-3 lg:gap-4">
                 {data.interests.map((interest) => (
                   <motion.div
                     key={interest.label}
-                    className="flex flex-col items-center justify-center gap-1 px-3 sm:px-4 py-3 sm:py-3 rounded-xl shadow-md cursor-pointer select-none professional-card"
+                    className="flex flex-col items-center justify-center gap-1 px-2 sm:px-3 lg:px-4 py-2 sm:py-3 rounded-xl shadow-md cursor-pointer select-none professional-card touch-target"
                     whileHover={{
                       scale: 1.08,
                       backgroundColor: "rgba(59, 130, 246, 0.1)",
                     }}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   >
-                    <span className="text-xl sm:text-2xl" style={{ color: themeColors.accentBlue }}>
+                    <span className="text-lg sm:text-xl md:text-2xl" style={{ color: themeColors.accentBlue }}>
                       {interest.icon}
                     </span>
                     <span

@@ -76,17 +76,17 @@ export function Education() {
   ]
 
   return (
-    <section id="education" className="py-20 bg-transparent">
-      <div className="container mx-auto px-6">
+    <section id="education" className="py-12 sm:py-16 lg:py-20 bg-transparent">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-cyan-400 mb-4">Education</h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">My academic journey and learning milestones</p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-cyan-400 mb-4">Education</h2>
+          <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">My academic journey and learning milestones</p>
         </motion.div>
 
         <motion.div
@@ -99,72 +99,72 @@ export function Education() {
           {/* Vertical Timeline */}
           <div className="relative">
             {/* Timeline Line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-400 via-blue-400 to-purple-400"></div>
+            <div className="absolute left-6 sm:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-400 via-blue-400 to-purple-400"></div>
 
-            <div className="space-y-12">
+            <div className="space-y-8 sm:space-y-12">
               {educationData.map((edu, index) => (
-                <motion.div key={index} variants={cardVariants} className="relative flex items-start gap-8">
+                <motion.div key={index} variants={cardVariants} className="relative flex items-start gap-4 sm:gap-8">
                   {/* Timeline Dot */}
                   <div className="relative z-10 flex-shrink-0">
                     <div
-                      className="w-16 h-16 rounded-2xl flex items-center justify-center text-white shadow-lg"
+                      className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center text-white shadow-lg"
                       style={{ backgroundColor: edu.color }}
                     >
                       {edu.icon}
                     </div>
                     {edu.current && (
-                      <div className="absolute -top-2 -right-2 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
-                        <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                      <div className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 w-4 h-4 sm:w-6 sm:h-6 bg-green-500 rounded-full flex items-center justify-center">
+                        <div className="w-1 h-1 sm:w-2 sm:h-2 bg-white rounded-full animate-pulse"></div>
                       </div>
                     )}
                   </div>
 
                   {/* Content Card */}
-                  <div className="flex-1 min-h-[200px]">
-                    <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl p-6 hover:border-cyan-400/50 transition-all duration-300 h-full">
+                  <div className="flex-1 min-h-[180px] sm:min-h-[200px]">
+                    <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl p-4 sm:p-6 hover:border-cyan-400/50 transition-all duration-300 h-full">
                       {/* Header */}
-                      <div className="mb-4">
-                        <div className="flex items-center gap-3 mb-2">
-                          <h3 className="text-xl font-bold text-white">{edu.degree}</h3>
+                      <div className="mb-3 sm:mb-4">
+                        <div className="flex items-center gap-2 sm:gap-3 mb-2">
+                          <h3 className="text-lg sm:text-xl font-bold text-white">{edu.degree}</h3>
                           {edu.current && (
                             <span className="bg-green-500 text-white text-xs px-2 py-1 rounded-full font-medium">
                               Current
                             </span>
                           )}
                         </div>
-                        <p className="text-lg font-semibold mb-2" style={{ color: edu.color }}>
+                        <p className="text-base sm:text-lg font-semibold mb-2" style={{ color: edu.color }}>
                           {edu.field}
                         </p>
-                        <p className="text-gray-400 font-medium mb-3">{edu.institution}</p>
+                        <p className="text-gray-400 font-medium mb-2 sm:mb-3 text-sm sm:text-base">{edu.institution}</p>
 
                         {/* Meta Info */}
-                        <div className="flex flex-wrap gap-4 text-sm text-gray-500 mb-4">
+                        <div className="flex flex-wrap gap-3 sm:gap-4 text-xs sm:text-sm text-gray-500 mb-3 sm:mb-4">
                           <div className="flex items-center gap-1">
-                            <Calendar className="h-4 w-4" />
+                            <Calendar className="h-3 w-3 sm:h-4 sm:w-4" />
                             {edu.period}
                           </div>
                           <div className="flex items-center gap-1">
-                            <MapPin className="h-4 w-4" />
+                            <MapPin className="h-3 w-3 sm:h-4 sm:w-4" />
                             {edu.location}
                           </div>
                           <div className="flex items-center gap-1">
-                            <Star className="h-4 w-4" />
+                            <Star className="h-3 w-3 sm:h-4 sm:w-4" />
                             {edu.grade}
                           </div>
                         </div>
                       </div>
 
                       {/* Description */}
-                      <p className="text-gray-400 mb-4 leading-relaxed">{edu.description}</p>
+                      <p className="text-gray-400 mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base">{edu.description}</p>
 
                       {/* Subjects */}
                       <div>
-                        <h4 className="text-white font-semibold mb-2 text-sm">Key Subjects:</h4>
-                        <div className="flex flex-wrap gap-2">
+                        <h4 className="text-white font-semibold mb-2 text-xs sm:text-sm">Key Subjects:</h4>
+                        <div className="flex flex-wrap gap-1 sm:gap-2">
                           {edu.subjects.map((subject, subjectIndex) => (
                             <span
                               key={subjectIndex}
-                              className="bg-gray-800 text-gray-300 text-xs px-3 py-1 rounded-full border border-gray-700 hover:border-cyan-400 transition-colors"
+                              className="bg-gray-800 text-gray-300 text-xs px-2 sm:px-3 py-1 rounded-full border border-gray-700 hover:border-cyan-400 transition-colors"
                             >
                               {subject}
                             </span>

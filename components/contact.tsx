@@ -199,7 +199,7 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 bg-transparent relative overflow-hidden">
+    <section id="contact" className="py-12 sm:py-16 lg:py-20 bg-transparent relative overflow-hidden">
       {/* Futuristic Background */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-10 w-32 h-32 border border-blue-400 rounded-full animate-pulse"></div>
@@ -208,21 +208,21 @@ export function Contact() {
         <div className="absolute top-1/3 right-1/3 w-20 h-20 border border-green-400 rounded-full animate-pulse" style={{ animationDelay: "3s" }}></div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-blue-400 mb-4">Get In Touch</h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-blue-400 mb-4">Get In Touch</h2>
+          <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
             Ready to bring your ideas to life? Let's create something amazing together!
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 max-w-7xl mx-auto">
           {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -231,18 +231,18 @@ export function Contact() {
             transition={{ duration: 0.8 }}
             className="flex flex-col justify-center"
           >
-            <h3 className="text-3xl font-bold text-white mb-8 flex items-center gap-3">
-              <MessageSquare className="h-8 w-8 text-blue-400" />
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6 sm:mb-8 flex items-center gap-3">
+              <MessageSquare className="h-6 sm:h-8 w-6 sm:w-8 text-blue-400" />
               Let's Connect
             </h3>
             
-            <p className="text-gray-300 mb-8 text-lg leading-relaxed">
+            <p className="text-gray-300 mb-6 sm:mb-8 text-base sm:text-lg leading-relaxed">
               I'm always excited to discuss new opportunities, innovative projects, or just chat about technology and development. 
               Whether you have a project in mind or want to collaborate, I'd love to hear from you!
             </p>
 
             {/* Contact Cards */}
-            <div className="space-y-6 mb-8">
+            <div className="space-y-4 sm:space-y-6 mb-6 sm:mb-8">
               {contactInfo.map((info, index) => (
                 <motion.div
                   key={index}
@@ -253,25 +253,25 @@ export function Contact() {
                   whileHover={{ scale: 1.02 }}
                   className="group"
                 >
-                  <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-6 hover:border-blue-400/50 transition-all duration-300">
-                    <div className="flex items-center gap-4">
+                  <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-4 sm:p-6 hover:border-blue-400/50 transition-all duration-300">
+                    <div className="flex items-center gap-3 sm:gap-4">
                       <div 
-                        className="w-12 h-12 rounded-xl flex items-center justify-center text-white transition-all duration-300 group-hover:scale-110"
+                        className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center text-white transition-all duration-300 group-hover:scale-110"
                         style={{ backgroundColor: info.color }}
                       >
                         {info.icon}
                       </div>
                       <div className="flex-1">
-                        <h4 className="text-white font-semibold text-lg mb-1">{info.title}</h4>
+                        <h4 className="text-white font-semibold text-base sm:text-lg mb-1">{info.title}</h4>
                         <a 
                           href={info.link} 
-                          className="text-gray-400 hover:text-blue-400 transition-colors text-base"
+                          className="text-gray-400 hover:text-blue-400 transition-colors text-sm sm:text-base"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
                           {info.value}
                         </a>
-                        <p className="text-gray-500 text-sm mt-1">{info.description}</p>
+                        <p className="text-gray-500 text-xs sm:text-sm mt-1">{info.description}</p>
                       </div>
                     </div>
                   </div>
@@ -281,11 +281,11 @@ export function Contact() {
 
             {/* Social Links */}
             <div className="mt-auto">
-              <h4 className="text-white font-semibold text-lg mb-4 flex items-center gap-2">
-                <Globe className="h-5 w-5 text-purple-400" />
+              <h4 className="text-white font-semibold text-base sm:text-lg mb-3 sm:mb-4 flex items-center gap-2">
+                <Globe className="h-4 sm:h-5 w-4 sm:w-5 text-purple-400" />
                 Connect Online
               </h4>
-              <div className="flex gap-4">
+              <div className="flex gap-3 sm:gap-4">
                 {socialLinks.map((social, index) => (
                   <motion.a
                     key={index}
@@ -298,7 +298,7 @@ export function Contact() {
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     whileHover={{ scale: 1.1, y: -5 }}
                     whileTap={{ scale: 0.95 }}
-                    className="w-12 h-12 rounded-xl flex items-center justify-center text-white transition-all duration-300 border border-gray-700 hover:border-gray-600"
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center text-white transition-all duration-300 border border-gray-700 hover:border-gray-600 touch-target"
                     style={{ backgroundColor: social.color }}
                   >
                     {social.icon}
@@ -326,17 +326,17 @@ export function Contact() {
               </div>
               
               <CardHeader className="relative z-10">
-                <CardTitle className="text-white text-2xl flex items-center gap-2">
-                  <Zap className="h-6 w-6 text-blue-400 animate-pulse" />
+                <CardTitle className="text-white text-xl sm:text-2xl flex items-center gap-2">
+                  <Zap className="h-5 sm:h-6 w-5 sm:w-6 text-blue-400 animate-pulse" />
                   Send a Message
                 </CardTitle>
-                <p className="text-gray-400 text-sm mt-2">
+                <p className="text-gray-400 text-xs sm:text-sm mt-2">
                   Fill out the form below and I'll get back to you within 24 hours
                 </p>
               </CardHeader>
               <CardContent className="relative z-10 flex-1 flex flex-col">
-                <form ref={formRef} onSubmit={handleSubmit} className="space-y-6 flex-1 flex flex-col">
-                  <div className="grid md:grid-cols-2 gap-4">
+                <form ref={formRef} onSubmit={handleSubmit} className="space-y-4 sm:space-y-6 flex-1 flex flex-col">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="relative">
                       <Input
                         name="name"
@@ -363,7 +363,7 @@ export function Contact() {
                         <motion.p
                           initial={{ opacity: 0, y: -10 }}
                           animate={{ opacity: 1, y: 0 }}
-                          className="text-red-400 text-sm mt-1 flex items-center gap-1"
+                          className="text-red-400 text-xs sm:text-sm mt-1 flex items-center gap-1"
                         >
                           <AlertCircle className="h-3 w-3" />
                           {errors.name}
@@ -397,7 +397,7 @@ export function Contact() {
                         <motion.p
                           initial={{ opacity: 0, y: -10 }}
                           animate={{ opacity: 1, y: 0 }}
-                          className="text-red-400 text-sm mt-1 flex items-center gap-1"
+                          className="text-red-400 text-xs sm:text-sm mt-1 flex items-center gap-1"
                         >
                           <AlertCircle className="h-3 w-3" />
                           {errors.email}
@@ -432,7 +432,7 @@ export function Contact() {
                       <motion.p
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-red-400 text-sm mt-1 flex items-center gap-1"
+                        className="text-red-400 text-xs sm:text-sm mt-1 flex items-center gap-1"
                       >
                         <AlertCircle className="h-3 w-3" />
                         {errors.subject}
@@ -449,7 +449,7 @@ export function Contact() {
                       onFocus={() => handleFieldFocus("message")}
                       onBlur={handleFieldBlur}
                       rows={6}
-                      className={`bg-gray-800/80 border-gray-600 text-white placeholder:text-gray-400 transition-all duration-300 resize-none h-full min-h-[150px] rounded-xl ${
+                      className={`bg-gray-800/80 border-gray-600 text-white placeholder:text-gray-400 transition-all duration-300 resize-none h-full min-h-[120px] sm:min-h-[150px] rounded-xl ${
                         activeField === "message" ? "border-blue-400 ring-2 ring-blue-400/20 shadow-lg shadow-blue-400/20" : ""
                       } ${errors.message ? "border-red-500 ring-2 ring-red-500/20" : ""}`}
                       required
@@ -469,7 +469,7 @@ export function Contact() {
                           <motion.p
                             initial={{ opacity: 0, y: -10 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="text-red-400 text-sm flex items-center gap-1"
+                            className="text-red-400 text-xs sm:text-sm flex items-center gap-1"
                           >
                             <AlertCircle className="h-3 w-3" />
                             {errors.message}
@@ -482,11 +482,11 @@ export function Contact() {
                     </div>
                   </div>
                   
-                  <div className="mt-auto space-y-4">
+                  <div className="mt-auto space-y-3 sm:space-y-4">
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 hover:from-cyan-500 hover:via-purple-500 hover:to-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 h-12 text-lg font-semibold relative overflow-hidden group rounded-xl"
+                      className="w-full bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 hover:from-cyan-500 hover:via-purple-500 hover:to-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 h-12 text-base sm:text-lg font-semibold relative overflow-hidden group rounded-xl touch-target"
                     >
                       {/* Animated Background */}
                       <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
@@ -500,7 +500,7 @@ export function Contact() {
                             exit={{ opacity: 0 }}
                             className="flex items-center gap-2 relative z-10"
                           >
-                            <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                            <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                             Sending Message...
                           </motion.div>
                         ) : (
@@ -511,7 +511,7 @@ export function Contact() {
                             exit={{ opacity: 0 }}
                             className="flex items-center gap-2 relative z-10"
                           >
-                            <Send className="h-5 w-5 group-hover:animate-bounce" />
+                            <Send className="h-4 w-4 sm:h-5 sm:w-5 group-hover:animate-bounce" />
                             Send Message
                           </motion.div>
                         )}
@@ -525,12 +525,12 @@ export function Contact() {
                           initial={{ opacity: 0, y: 10, scale: 0.95 }}
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                          className="flex items-center gap-3 text-green-400 bg-green-400/10 border border-green-400/20 rounded-xl p-4 backdrop-blur-sm"
+                          className="flex items-center gap-3 text-green-400 bg-green-400/10 border border-green-400/20 rounded-xl p-3 sm:p-4 backdrop-blur-sm"
                         >
-                          <CheckCircle className="h-5 w-5 text-green-400" />
+                          <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-400" />
                           <div>
-                            <div className="font-semibold">Message sent successfully!</div>
-                            <div className="text-sm text-green-300">I'll get back to you within 24 hours.</div>
+                            <div className="font-semibold text-sm sm:text-base">Message sent successfully!</div>
+                            <div className="text-xs sm:text-sm text-green-300">I'll get back to you within 24 hours.</div>
                           </div>
                         </motion.div>
                       )}
@@ -539,19 +539,19 @@ export function Contact() {
                           initial={{ opacity: 0, y: 10, scale: 0.95 }}
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                          className="flex items-center gap-3 text-red-400 bg-red-400/10 border border-red-400/20 rounded-xl p-4 backdrop-blur-sm"
+                          className="flex items-center gap-3 text-red-400 bg-red-400/10 border border-red-400/20 rounded-xl p-3 sm:p-4 backdrop-blur-sm"
                         >
-                          <AlertCircle className="h-5 w-5 text-red-400" />
+                          <AlertCircle className="h-4 w-4 sm:h-5 sm:w-5 text-red-400" />
                           <div>
-                            <div className="font-semibold">Something went wrong</div>
-                            <div className="text-sm text-red-300">Please try again or email me directly at atharvajondhale7@gmail.com</div>
+                            <div className="font-semibold text-sm sm:text-base">Something went wrong</div>
+                            <div className="text-xs sm:text-sm text-red-300">Please try again or email me directly at atharvajondhale7@gmail.com</div>
                           </div>
                         </motion.div>
                       )}
                     </AnimatePresence>
                     
                     {/* Enhanced Form Tips */}
-                    <div className="bg-gray-800/30 rounded-xl p-4 border border-gray-700">
+                    <div className="bg-gray-800/30 rounded-xl p-3 sm:p-4 border border-gray-700">
                       <div className="text-xs text-gray-400 space-y-2">
                         <div className="flex items-center gap-2">
                           <span className="text-blue-400">💡</span>

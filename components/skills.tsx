@@ -23,7 +23,7 @@ const skillsData = [
     level: 80,
     description: "Type-safe development for scalable applications",
     projects: ["Full-stack apps", "API Development"],
-    proficiency: "Advanced"
+    proficiency: "Learner"
   },
   {
     name: "JavaScript",
@@ -43,7 +43,7 @@ const skillsData = [
     level: 80,
     description: "Backend development and automation scripting",
     projects: ["Data Processing", "Automation"],
-    proficiency: "Intermediate"
+    proficiency: "Advanced"
   },
   {
     name: "C#",
@@ -117,7 +117,7 @@ const skillsData = [
     level: 80,
     description: "Server-side JavaScript for scalable applications",
     projects: ["APIs", "Real-time apps"],
-    proficiency: "Advanced"
+    proficiency: "Intermediate"
   },
   {
     name: "gRPC",
@@ -283,23 +283,23 @@ const row3Skills = skillsData.slice(16, 24)
 const SkillCard = ({ skill, index, onClick }: { skill: any, index: number, onClick: (skill: any) => void }) => {
   return (
     <motion.div
-      className="flex-shrink-0 mx-2 sm:mx-4 group cursor-pointer touch-target"
+      className="flex-shrink-0 mx-1 sm:mx-2 lg:mx-4 group cursor-pointer touch-target"
       whileHover={{ scale: 1.1, y: -5 }}
       whileTap={{ scale: 0.95 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
       onClick={() => onClick(skill)}
     >
-      <div className="relative professional-card rounded-2xl p-4 sm:p-6 w-24 h-24 sm:w-32 sm:h-32 flex flex-col items-center justify-center transition-all duration-300 group-hover:border-blue-400 subtle-glow">
+      <div className="relative professional-card rounded-2xl p-3 sm:p-4 lg:p-6 w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 flex flex-col items-center justify-center transition-all duration-300 group-hover:border-blue-400 subtle-glow">
         {/* Skill Icon */}
-        <div className="text-2xl sm:text-4xl mb-1 sm:mb-2 transition-transform duration-300 group-hover:scale-110">{skill.icon}</div>
+        <div className="text-lg sm:text-2xl lg:text-4xl mb-1 sm:mb-2 transition-transform duration-300 group-hover:scale-110">{skill.icon}</div>
 
         {/* Skill Name */}
-        <h3 className="text-white font-semibold text-xs text-center group-hover:text-blue-400 transition-colors leading-tight">
+        <h3 className="text-white font-semibold text-xs sm:text-sm text-center group-hover:text-blue-400 transition-colors leading-tight">
           {skill.name}
         </h3>
 
         {/* Skill Level Indicator */}
-        <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-12 sm:w-16 h-1 bg-gray-700 rounded-full overflow-hidden">
+        <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-8 sm:w-12 lg:w-16 h-1 bg-gray-700 rounded-full overflow-hidden">
           <motion.div
             className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
             initial={{ width: 0 }}
@@ -371,18 +371,18 @@ const SkillModal = ({ skill, isOpen, onClose }: { skill: any, isOpen: boolean, o
           onClick={(e) => e.stopPropagation()}
         >
           <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-            <div className="text-3xl sm:text-4xl">{skill.icon}</div>
+            <div className="text-2xl sm:text-3xl lg:text-4xl">{skill.icon}</div>
             <div>
-              <h3 className="text-xl sm:text-2xl font-bold text-white">{skill.name}</h3>
-              <p className="text-sm sm:text-base text-gray-400">{skill.category}</p>
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white">{skill.name}</h3>
+              <p className="text-xs sm:text-sm lg:text-base text-gray-400">{skill.category}</p>
             </div>
           </div>
           
           <div className="space-y-3 sm:space-y-4">
-            <p className="text-sm sm:text-base text-gray-300">{skill.description}</p>
+            <p className="text-xs sm:text-sm lg:text-base text-gray-300">{skill.description}</p>
             
             <div>
-              <h4 className="font-semibold text-white mb-2 text-sm sm:text-base">Proficiency Level</h4>
+              <h4 className="font-semibold text-white mb-2 text-xs sm:text-sm lg:text-base">Proficiency Level</h4>
               <div className="flex items-center gap-2">
                 <div className="flex-1 bg-gray-700 rounded-full h-2">
                   <div 
@@ -396,7 +396,7 @@ const SkillModal = ({ skill, isOpen, onClose }: { skill: any, isOpen: boolean, o
             </div>
             
             <div>
-              <h4 className="font-semibold text-white mb-2 text-sm sm:text-base">Key Projects</h4>
+              <h4 className="font-semibold text-white mb-2 text-xs sm:text-sm lg:text-base">Key Projects</h4>
               <div className="flex flex-wrap gap-2">
                 {skill.projects.map((project: string, index: number) => (
                   <span 
@@ -412,7 +412,7 @@ const SkillModal = ({ skill, isOpen, onClose }: { skill: any, isOpen: boolean, o
           
           <button
             onClick={onClose}
-            className="absolute top-2 sm:top-4 right-2 sm:right-4 text-gray-400 hover:text-white transition-colors touch-target p-2"
+            className="absolute top-2 sm:top-4 right-2 sm:right-4 text-gray-400 hover:text-white transition-colors touch-target p-2 min-h-[44px] min-w-[44px]"
             aria-label="Close modal"
           >
             ✕
@@ -437,7 +437,7 @@ export function Skills() {
       <div className="container mx-auto px-4 sm:px-6">
         {/* Header */}
         <motion.div
-          className="text-center mb-12 sm:mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -446,16 +446,16 @@ export function Skills() {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-blue-400 mb-3">
             Technical Skills
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-4 sm:mb-6 px-4">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-400 max-w-2xl mx-auto mb-3 sm:mb-4 lg:mb-6 px-4">
             Technologies and tools I use to build scalable digital experiences
           </p>
-          <p className="text-xs sm:text-sm md:text-base text-blue-300 text-center mb-6 px-4">
+          <p className="text-xs sm:text-sm md:text-base text-blue-300 text-center mb-4 sm:mb-6 px-4">
             Click any skill icon to see what I use it for and how good I am with it
           </p>
         </motion.div>
 
         {/* Enhanced Grid View with Click Interactions */}
-        <div className="space-y-6 sm:space-y-8">
+        <div className="space-y-4 sm:space-y-6 lg:space-y-8">
           {/* Row 1 - Moving Left */}
           <motion.div
             initial={{ opacity: 0, x: -100 }}
