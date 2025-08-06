@@ -204,7 +204,13 @@ export const Hero = () => {
           >
             {/* Main Heading - Responsive text sizes */}
             <motion.h1
+<<<<<<< HEAD
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black leading-tight mb-6 sm:mb-8 lg:mb-12"
+=======
+
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight mb-8 sm:mb-12 lg:mb-28"
+
+>>>>>>> 62d609ddab9ec2d6985eed3712e8a2f7f823e677
               variants={itemVariants}
             >
               <div className="overflow-hidden">
@@ -218,9 +224,16 @@ export const Hero = () => {
               </div>
             </motion.h1>
 
+
             {/* Animated Role - Responsive text */}
+<<<<<<< HEAD
             <motion.div variants={itemVariants} className="mt-6 sm:mt-8 mb-6 sm:mb-8 lg:mb-12">
               <div className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold font-mono text-cyan-400">
+=======
+            <motion.div variants={itemVariants} className="mt-8 mb-8 sm:mb-12 lg:mb-48">
+              <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold font-mono text-cyan-400">
+
+>>>>>>> 62d609ddab9ec2d6985eed3712e8a2f7f823e677
                 <TypeAnimation
                   sequence={[
                     "ERP Developer Intern",
@@ -246,7 +259,12 @@ export const Hero = () => {
 
             {/* Bio - Responsive text and spacing */}
             <motion.p
+<<<<<<< HEAD
               className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-relaxed max-w-3xl mx-auto lg:mx-0 font-body text-pink-200 shadow-xl mt-6 sm:mt-8 mb-6 sm:mb-8"
+=======
+
+              className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed max-w-3xl mx-auto lg:mx-0 font-body text-pink-200 shadow-xl mt-8 sm:mt-12 mb-8 sm:mb-14"
+>>>>>>> 62d609ddab9ec2d6985eed3712e8a2f7f823e677
               variants={itemVariants}
             >
               {bioTextContent}
