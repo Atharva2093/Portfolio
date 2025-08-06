@@ -134,7 +134,7 @@ const skillsData = [
     icon: "🔥",
     color: "#FFCA28",
     category: "Backend",
-    level: 80,
+    level: 70,
     description: "Cloud services for authentication, database, and hosting",
     projects: ["Web Apps", "Mobile Backend"],
     proficiency: "Advanced"
