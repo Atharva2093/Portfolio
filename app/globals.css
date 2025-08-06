@@ -257,6 +257,29 @@
     min-height: 48px;
     min-width: 48px;
   }
+  
+  /* Prevent horizontal scroll on mobile */
+  body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  /* Improve text readability on small screens */
+  .text-responsive {
+    font-size: clamp(0.875rem, 4vw, 1rem);
+  }
+  
+  /* Optimize animations for mobile */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Improve button interactions */
+  button, a {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
 }
 
 /* Tablet optimizations */

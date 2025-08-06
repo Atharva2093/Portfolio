@@ -113,7 +113,7 @@ export const Hero = () => {
     <section
       id="home"
       ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-transparent py-8 px-4 sm:px-6 lg:px-8"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-transparent py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8"
       aria-label="Hero section"
     >
       {/* Subtle Background Elements - Hidden on mobile for performance */}
@@ -143,9 +143,9 @@ export const Hero = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="relative group mb-4">
+            <div className="relative group mb-4 sm:mb-6">
               <div
-                className="relative w-64 h-80 sm:w-80 sm:h-96 rounded-2xl overflow-hidden border-2 shadow-2xl transition-all duration-500 group-hover:scale-105 professional-card"
+                className="relative w-48 h-64 sm:w-64 sm:h-80 lg:w-80 lg:h-96 rounded-2xl overflow-hidden border-2 shadow-2xl transition-all duration-500 group-hover:scale-105 professional-card"
                 style={{
                   borderColor: themeColors.accentBlue,
                   boxShadow: `0 10px 40px rgba(59, 130, 246, 0.2)`,
@@ -160,7 +160,7 @@ export const Hero = () => {
                   className={`object-cover transition-all duration-700 ${
                     isPhotoHovered ? "grayscale-0 scale-110" : "grayscale"
                   }`}
-                  sizes="(max-width: 640px) 256px, (max-width: 768px) 320px, 384px"
+                  sizes="(max-width: 640px) 192px, (max-width: 768px) 256px, (max-width: 1024px) 320px, 384px"
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -169,7 +169,7 @@ export const Hero = () => {
 
             {/* Quick Info Cards - Responsive width */}
             <motion.div
-              className="w-full max-w-sm sm:max-w-md space-y-3"
+              className="w-full max-w-xs sm:max-w-sm lg:max-w-md space-y-3"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
@@ -204,7 +204,7 @@ export const Hero = () => {
           >
             {/* Main Heading - Responsive text sizes */}
             <motion.h1
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight mb-8 sm:mb-12 lg:mb-28"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black leading-tight mb-6 sm:mb-8 lg:mb-12"
               variants={itemVariants}
             >
               <div className="overflow-hidden">
@@ -219,8 +219,8 @@ export const Hero = () => {
             </motion.h1>
 
             {/* Animated Role - Responsive text */}
-            <motion.div variants={itemVariants} className="mt-8 mb-8 sm:mb-12 lg:mb-48">
-              <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold font-mono text-cyan-400">
+            <motion.div variants={itemVariants} className="mt-6 sm:mt-8 mb-6 sm:mb-8 lg:mb-12">
+              <div className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold font-mono text-cyan-400">
                 <TypeAnimation
                   sequence={[
                     "ERP Developer Intern",
@@ -246,7 +246,7 @@ export const Hero = () => {
 
             {/* Bio - Responsive text and spacing */}
             <motion.p
-              className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed max-w-3xl mx-auto lg:mx-0 font-body text-pink-200 shadow-xl mt-8 sm:mt-12 mb-8 sm:mb-14"
+              className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-relaxed max-w-3xl mx-auto lg:mx-0 font-body text-pink-200 shadow-xl mt-6 sm:mt-8 mb-6 sm:mb-8"
               variants={itemVariants}
             >
               {bioTextContent}
@@ -267,7 +267,7 @@ export const Hero = () => {
             transition={{ duration: 0.8, delay: 1 }}
           >
             {/* Social Links - Responsive layout */}
-            <div className="flex flex-row gap-4 sm:gap-6 justify-center lg:justify-start lg:flex-col tracking-normal lg:items-start">
+            <div className="flex flex-row gap-3 sm:gap-4 lg:gap-6 justify-center lg:justify-start lg:flex-col tracking-normal lg:items-start">
               <SocialIconLink href={personalInfo.socialLinks.github} icon={Github} name="GitHub" />
               <SocialIconLink href={personalInfo.socialLinks.linkedin} icon={Linkedin} name="LinkedIn" />
               <SocialIconLink href={personalInfo.socialLinks.twitter} icon={Twitter} name="Twitter" />
