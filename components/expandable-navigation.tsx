@@ -129,9 +129,7 @@ export function ExpandableNavigation() {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-gray-900/95 backdrop-blur-md border-b border-gray-800/50' : 'bg-transparent'
-      }`}
+      className={`fixed top-0 w-full z-50 transition-all duration-300 bg-transparent`}
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
         <div className="flex items-center justify-between">
@@ -205,7 +203,7 @@ export function ExpandableNavigation() {
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="lg:hidden mt-4 pb-4 overflow-hidden mobile-menu-container"
             >
-              <div className="flex flex-col space-y-2 bg-gray-900/95 backdrop-blur-md rounded-xl p-4 border border-gray-800/50 shadow-xl">
+              <div className="flex flex-col space-y-2 bg-gray-900/30 backdrop-blur-sm rounded-xl p-4 border border-gray-800/20 shadow-xl">
                 {mobileNavItems.map((item, index) => (
                   <motion.div
                     key={item.href}

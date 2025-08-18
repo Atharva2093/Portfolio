@@ -3,7 +3,7 @@
 import React, { useRef, useState } from "react"
 import { motion } from "framer-motion"
 import Image from "next/image"
-import { Github, Linkedin, Twitter, Instagram, Mail, MapPin, Calendar, Phone } from "lucide-react"
+import { Github, Linkedin, Twitter, Instagram, Mail, MapPin, Calendar, FileUser, Download } from "lucide-react"
 import BlurText from "./ui/blur-text"
 
 // --- Personal Information ---
@@ -21,6 +21,7 @@ const personalInfo = {
     twitter: "https://x.com/atharva_j2093",
     instagram: "https://www.instagram.com/atharva_j2093",
     email: "https://mail.google.com/mail/?view=cm&fs=1&to=atharvajondhale7@gmail.com",
+    linktree: "https://linktr.ee/atharva_jondhale",
   },
 }
 
@@ -73,6 +74,14 @@ const TypeAnimation = ({
   const [currentIndex, setCurrentIndex] = useState(0)
 
   React.useEffect(() => {
+    if (!sequence?.length) return;
+    
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      setCurrentText(sequence[0] as string || "");
+      return;
+    }
+
     const texts = sequence.filter((_, index: number) => index % 2 === 0) as string[]
     const delays = sequence.filter((_, index: number) => index % 2 === 1) as number[]
 
@@ -84,6 +93,7 @@ const TypeAnimation = ({
   }, [sequence, currentIndex])
 
   React.useEffect(() => {
+    if (!sequence?.length) return;
     const text = sequence[currentIndex * 2] as string || ""
     let index = 0
     setCurrentText("")
@@ -102,6 +112,28 @@ const TypeAnimation = ({
   return <Wrapper className={className}>{currentText}</Wrapper>
 }
 
+// Custom Linktree Icon Component
+const LinktreeIcon = ({ size = 18, className = "", style = {} }: { size?: number; className?: string; style?: React.CSSProperties }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className={className}
+    style={style}
+  >
+    <path
+      d="M7.953 15.066c-.08.163-.08.324-.08.486v.081c0 1.378 1.378 2.756 2.756 2.756 1.378 0 2.675-1.378 2.675-2.756v-.081c0-.162 0-.323-.081-.486L11.999 11.5l-1.224 3.566ZM16.046 8.934c.081-.163.081-.324.081-.486v-.081c0-1.378-1.378-2.756-2.756-2.756-1.378 0-2.675 1.378-2.675 2.756v.081c0 .162 0 .323.08.486L12.001 12.5l1.224-3.566Z"
+      fill="currentColor"
+    />
+    <path
+      d="M12 7.5a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM7.5 16.5a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9ZM16.5 16.5a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9Z"
+      fill="currentColor"
+    />
+  </svg>
+)
+
 export const Hero = () => {
   const sectionRef = useRef(null)
   const [isPhotoHovered, setIsPhotoHovered] = useState(false)
@@ -113,7 +145,7 @@ export const Hero = () => {
     <section
       id="home"
       ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-transparent py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-transparent py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 mb-16 sm:mb-24"
       aria-label="Hero section"
     >
       {/* Subtle Background Elements - Hidden on mobile for performance */}
@@ -155,8 +187,12 @@ export const Hero = () => {
               >
                 <Image
                   src={personalInfo.profileImage || "/placeholder.svg"}
-                  alt={personalInfo.name}
+                  alt={`Profile photo of ${personalInfo.name}`}
                   fill
+                  onLoad={(event) => {
+                    const img = event.target as HTMLImageElement;
+                    img.classList.add('loaded');
+                  }}
                   className={`object-cover transition-all duration-700 ${
                     isPhotoHovered ? "grayscale-0 scale-110" : "grayscale"
                   }`}
@@ -186,10 +222,30 @@ export const Hero = () => {
                   <span className="text-gray-300 text-sm sm:text-base">{personalInfo.experience} Experience</span>
                 </div>
               </div>
-              <div className="professional-card p-3 sm:p-4 rounded-xl">
-                <div className="flex items-center gap-3 text-sm">
-                  <Phone size={16} className="text-green-400 flex-shrink-0" />
-                  <span className="text-gray-300 text-sm sm:text-base">+91 7588195521</span>
+              <div
+                className="professional-card p-3 sm:p-4 rounded-xl cursor-pointer hover:bg-slate-800/50 transition-colors"
+                onClick={async () => {
+                  try {
+                    const response = await fetch('/Atharva_Jondhale_Resume.pdf');
+                    if (!response.ok) throw new Error('Download failed');
+                    const blob = await response.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.download = 'Atharva_Jondhale_Resume.pdf';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    window.URL.revokeObjectURL(url);
+                  } catch (error) {
+                    console.error('Download failed:', error);
+                  }
+                }}
+              >
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <FileUser size={16} className="text-green-400 flex-shrink-0" />
+                  <span className="text-gray-300 text-xs sm:text-sm lg:text-base">Download CV</span>
+                  <Download size={16} className="text-blue-400 flex-shrink-0 ml-auto" />
                 </div>
               </div>
             </motion.div>
@@ -202,15 +258,9 @@ export const Hero = () => {
             animate="visible"
             variants={heroContentVariants}
           >
-            {/* Main Heading - Responsive text sizes */}
+            {/* Main Heading - Name */}
             <motion.h1
-<<<<<<< HEAD
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black leading-tight mb-6 sm:mb-8 lg:mb-12"
-=======
-
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight mb-8 sm:mb-12 lg:mb-28"
-
->>>>>>> 62d609ddab9ec2d6985eed3712e8a2f7f823e677
               variants={itemVariants}
             >
               <div className="overflow-hidden">
@@ -224,30 +274,17 @@ export const Hero = () => {
               </div>
             </motion.h1>
 
-
-            {/* Animated Role - Responsive text */}
-<<<<<<< HEAD
-            <motion.div variants={itemVariants} className="mt-6 sm:mt-8 mb-6 sm:mb-8 lg:mb-12">
-              <div className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold font-mono text-cyan-400">
-=======
+            {/* Animated Role / Type Effect */}
             <motion.div variants={itemVariants} className="mt-8 mb-8 sm:mb-12 lg:mb-48">
               <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold font-mono text-cyan-400">
-
->>>>>>> 62d609ddab9ec2d6985eed3712e8a2f7f823e677
                 <TypeAnimation
                   sequence={[
-                    "ERP Developer Intern",
-                    2500,
-                    "UI/UX Specialist",
-                    2500,
-                    "Neon Genesis Core Member",
-                    2500,
-                    "Frontend Developer",
-                    2500,
-                    "Tech Enthusiast",
-                    2500,
-                    "Hackathon Participant",
-                    2500,
+                    "ERP Developer Intern", 2500,
+                    "UI/UX Specialist", 2500,
+                    "Neon Genesis Core Member", 2500,
+                    "Frontend Developer", 2500,
+                    "Tech Enthusiast", 2500,
+                    "Hackathon Participant", 2500,
                   ]}
                   wrapper="span"
                   speed={60}
@@ -257,14 +294,9 @@ export const Hero = () => {
               </div>
             </motion.div>
 
-            {/* Bio - Responsive text and spacing */}
+            {/* Bio Text */}
             <motion.p
-<<<<<<< HEAD
-              className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-relaxed max-w-3xl mx-auto lg:mx-0 font-body text-pink-200 shadow-xl mt-6 sm:mt-8 mb-6 sm:mb-8"
-=======
-
               className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed max-w-3xl mx-auto lg:mx-0 font-body text-pink-200 shadow-xl mt-8 sm:mt-12 mb-8 sm:mb-14"
->>>>>>> 62d609ddab9ec2d6985eed3712e8a2f7f823e677
               variants={itemVariants}
             >
               {bioTextContent}
@@ -291,6 +323,7 @@ export const Hero = () => {
               <SocialIconLink href={personalInfo.socialLinks.twitter} icon={Twitter} name="Twitter" />
               <SocialIconLink href={personalInfo.socialLinks.instagram} icon={Instagram} name="Instagram" />
               <SocialIconLink href={personalInfo.socialLinks.email} icon={Mail} name="Email" />
+              <SocialIconLink href={personalInfo.socialLinks.linktree} icon={LinktreeIcon} name="Linktree" />
             </div>
 
             {/* Quick Stats */}
@@ -302,6 +335,7 @@ export const Hero = () => {
             ></motion.div>
           </motion.div>
         </div>
+
       </div>
     </section>
   )
@@ -320,8 +354,8 @@ const SocialIconLink = ({ href, icon: IconComponent, name }: { href: string; ico
       <motion.a
         href={href}
         target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-xl transition-all duration-300 backdrop-blur-sm border professional-card relative overflow-hidden touch-target"
+        rel="noopener noreferrer nofollow"
+        className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 lg:w-12 lg:h-12 rounded-xl transition-all duration-300 backdrop-blur-sm border professional-card relative overflow-hidden touch-target"
         style={{
           borderColor: isHovered ? "#06b6d4" : "rgba(148, 163, 184, 0.2)",
         }}
@@ -330,8 +364,8 @@ const SocialIconLink = ({ href, icon: IconComponent, name }: { href: string; ico
         aria-label={`Visit ${name} profile`}
       >
         <IconComponent
-          size={18}
-          className="sm:w-5 sm:h-5"
+          size={20}
+          className="sm:w-6 sm:h-6 lg:w-5 lg:h-5"
           style={{
             color: isHovered ? "#06b6d4" : "#f8fafc",
           }}

@@ -50,7 +50,7 @@ export function Footer() {
     {
       icon: <Download className="h-4 w-4" />,
       text: "Resume available",
-      href: "/resume.pdf",
+      href: "/Atharva_Jondhale_Resume.pdf",
       description: "Download my latest CV"
     },
   ]
@@ -181,7 +181,13 @@ export function Footer() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="flex items-start gap-3 p-3 sm:p-4 bg-gray-900/30 rounded-lg border border-gray-800 hover:border-gray-700 transition-all duration-300"
+                  className={`flex items-start gap-3 p-3 sm:p-4 bg-gray-900/30 rounded-lg border border-gray-800 hover:border-gray-700 transition-all duration-300 ${info.href ? 'cursor-pointer hover:bg-gray-900/50' : ''}`}
+                  onClick={info.href ? () => {
+                    const link = document.createElement('a');
+                    link.href = info.href;
+                    link.download = 'Atharva_Jondhale_Resume.pdf';
+                    link.click();
+                  } : undefined}
                 >
                   <div className="text-blue-400 mt-1">
                     {info.icon}

@@ -146,12 +146,12 @@ export function Experience() {
           </p>
           
           {/* View Mode Toggle */}
-          <div className="flex justify-center gap-3 sm:gap-4 mb-6 sm:mb-8">
+          <div className="flex flex-col sm:flex-row justify-center gap-2 sm:gap-4 mb-6 sm:mb-8 max-w-sm mx-auto">
             <button
               onClick={() => setViewMode("grid")}
-              className={`px-4 sm:px-6 py-2 rounded-full transition-all text-sm sm:text-base touch-target ${
-                viewMode === "grid" 
-                  ? "bg-purple-500 text-white" 
+              className={`px-4 sm:px-6 py-3 sm:py-2 rounded-full transition-all text-sm sm:text-base font-medium min-h-[48px] sm:min-h-auto flex items-center justify-center ${
+                viewMode === "grid"
+                  ? "bg-purple-500 text-white shadow-lg"
                   : "bg-gray-700 text-gray-300 hover:bg-gray-600"
               }`}
             >
@@ -159,9 +159,9 @@ export function Experience() {
             </button>
             <button
               onClick={() => setViewMode("timeline")}
-              className={`px-4 sm:px-6 py-2 rounded-full transition-all text-sm sm:text-base touch-target ${
-                viewMode === "timeline" 
-                  ? "bg-purple-500 text-white" 
+              className={`px-4 sm:px-6 py-3 sm:py-2 rounded-full transition-all text-sm sm:text-base font-medium min-h-[48px] sm:min-h-auto flex items-center justify-center ${
+                viewMode === "timeline"
+                  ? "bg-purple-500 text-white shadow-lg"
                   : "bg-gray-700 text-gray-300 hover:bg-gray-600"
               }`}
             >
@@ -196,24 +196,24 @@ export function Experience() {
                       <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       
                       {/* Header */}
-                      <div className="flex items-start justify-between mb-4 sm:mb-6 relative z-10">
-                        <div className="flex items-center gap-3 sm:gap-4">
-                          <div className="text-2xl sm:text-3xl lg:text-4xl">{exp.logo}</div>
-                          <div>
-                            <div className="flex items-center gap-2 sm:gap-3 mb-2">
-                              <h3 className="text-lg sm:text-xl font-bold text-white">{exp.title}</h3>
+                      <div className="mb-4 sm:mb-6 relative z-10">
+                        <div className="flex items-start gap-3 sm:gap-4 mb-3">
+                          <div className="text-2xl sm:text-3xl lg:text-4xl flex-shrink-0">{exp.logo}</div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2">
+                              <h3 className="text-lg sm:text-xl font-bold text-white break-words">{exp.title}</h3>
                               {exp.current && (
-                                <span className="bg-green-500 text-white text-xs px-2 sm:px-3 py-1 rounded-full font-medium animate-pulse">
+                                <span className="bg-green-500 text-white text-xs px-2 sm:px-3 py-1 rounded-full font-medium animate-pulse self-start">
                                   Current
                                 </span>
                               )}
                             </div>
-                            <p className="text-base sm:text-lg font-semibold mb-1" style={{ color: exp.color }}>
+                            <p className="text-base sm:text-lg font-semibold mb-1 break-words" style={{ color: exp.color }}>
                               {exp.company}
                             </p>
                           </div>
                         </div>
-                        <div className="flex items-center gap-2">
+                        <div className="flex justify-end">
                           <div className={`px-2 sm:px-3 py-1 rounded-full text-xs font-medium border ${getImpactColor(exp.impact)}`}>
                             {exp.impact} Impact
                           </div>
@@ -261,21 +261,21 @@ export function Experience() {
                           <TrendingUp className="h-3 w-3 sm:h-4 sm:w-4" />
                           Technologies & Skills
                         </h4>
-                        <div className="flex flex-wrap gap-1 sm:gap-2 mb-3 sm:mb-4">
+                        <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
                           {exp.technologies.map((tech, techIndex) => (
                             <span
                               key={techIndex}
-                              className="bg-gray-800 text-gray-300 text-xs px-2 sm:px-3 py-1 rounded-full border border-gray-700 hover:border-purple-400 transition-colors"
+                              className="bg-gray-800 text-gray-300 text-xs px-2.5 sm:px-3 py-1.5 sm:py-1 rounded-full border border-gray-700 hover:border-purple-400 transition-colors whitespace-nowrap"
                             >
                               {tech}
                             </span>
                           ))}
                         </div>
-                        <div className="flex flex-wrap gap-1 sm:gap-2">
+                        <div className="flex flex-wrap gap-1.5 sm:gap-2">
                           {exp.skills.map((skill, skillIndex) => (
                             <span
                               key={skillIndex}
-                              className="bg-purple-500/20 text-purple-300 text-xs px-2 sm:px-3 py-1 rounded-full border border-purple-400/30"
+                              className="bg-purple-500/20 text-purple-300 text-xs px-2.5 sm:px-3 py-1.5 sm:py-1 rounded-full border border-purple-400/30 whitespace-nowrap"
                             >
                               {skill}
                             </span>
@@ -318,25 +318,27 @@ export function Experience() {
                     
                     {/* Content Card */}
                     <div className="ml-12 sm:ml-16 bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl p-4 sm:p-6 hover:border-purple-400/50 transition-all duration-300">
-                      <div className="flex items-start justify-between mb-3 sm:mb-4">
-                        <div className="flex items-center gap-3 sm:gap-4">
-                          <div className="text-2xl sm:text-3xl">{exp.logo}</div>
-                          <div>
-                            <div className="flex items-center gap-2 sm:gap-3 mb-2">
-                              <h3 className="text-lg sm:text-xl font-bold text-white">{exp.title}</h3>
+                      <div className="mb-3 sm:mb-4">
+                        <div className="flex items-start gap-3 sm:gap-4 mb-3">
+                          <div className="text-2xl sm:text-3xl flex-shrink-0">{exp.logo}</div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2">
+                              <h3 className="text-lg sm:text-xl font-bold text-white break-words">{exp.title}</h3>
                               {exp.current && (
-                                <span className="bg-green-500 text-white text-xs px-2 sm:px-3 py-1 rounded-full font-medium animate-pulse">
+                                <span className="bg-green-500 text-white text-xs px-2 sm:px-3 py-1 rounded-full font-medium animate-pulse self-start">
                                   Current
                                 </span>
                               )}
                             </div>
-                            <p className="text-base sm:text-lg font-semibold" style={{ color: exp.color }}>
+                            <p className="text-base sm:text-lg font-semibold break-words" style={{ color: exp.color }}>
                               {exp.company}
                             </p>
                           </div>
                         </div>
-                        <div className={`px-2 sm:px-3 py-1 rounded-full text-xs font-medium border ${getImpactColor(exp.impact)}`}>
-                          {exp.impact} Impact
+                        <div className="flex justify-end">
+                          <div className={`px-2 sm:px-3 py-1 rounded-full text-xs font-medium border ${getImpactColor(exp.impact)}`}>
+                            {exp.impact} Impact
+                          </div>
                         </div>
                       </div>
 
@@ -353,18 +355,18 @@ export function Experience() {
 
                       <p className="text-gray-400 leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">{exp.description}</p>
 
-                      <div className="flex flex-wrap gap-1 sm:gap-2">
-                        {exp.technologies.slice(0, 4).map((tech, techIndex) => (
+                      <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                        {exp.technologies.slice(0, 3).map((tech, techIndex) => (
                           <span
                             key={techIndex}
-                            className="bg-gray-800 text-gray-300 text-xs px-2 sm:px-3 py-1 rounded-full border border-gray-700"
+                            className="bg-gray-800 text-gray-300 text-xs px-2.5 sm:px-3 py-1.5 sm:py-1 rounded-full border border-gray-700 whitespace-nowrap"
                           >
                             {tech}
                           </span>
                         ))}
-                        {exp.technologies.length > 4 && (
-                          <span className="bg-purple-500/20 text-purple-300 text-xs px-2 sm:px-3 py-1 rounded-full">
-                            +{exp.technologies.length - 4} more
+                        {exp.technologies.length > 3 && (
+                          <span className="bg-purple-500/20 text-purple-300 text-xs px-2.5 sm:px-3 py-1.5 sm:py-1 rounded-full whitespace-nowrap">
+                            +{exp.technologies.length - 3} more
                           </span>
                         )}
                       </div>
@@ -393,11 +395,11 @@ export function Experience() {
             <div className="text-gray-400 text-xs sm:text-sm">Years Experience</div>
           </div>
           <div className="bg-gray-900/30 backdrop-blur-sm border border-gray-800 rounded-xl p-4 sm:p-6 text-center">
-            <div className="text-2xl sm:text-3xl font-bold text-cyan-400 mb-1 sm:mb-2">10+</div>
+            <div className="text-2xl sm:text-3xl font-bold text-cyan-400 mb-1 sm:mb-2">8+</div>
             <div className="text-gray-400 text-xs sm:text-sm">Technologies</div>
           </div>
           <div className="bg-gray-900/30 backdrop-blur-sm border border-gray-800 rounded-xl p-4 sm:p-6 text-center">
-            <div className="text-2xl sm:text-3xl font-bold text-green-400 mb-1 sm:mb-2">4+</div>
+            <div className="text-2xl sm:text-3xl font-bold text-green-400 mb-1 sm:mb-2">3+</div>
             <div className="text-gray-400 text-xs sm:text-sm">Projects Completed</div>
           </div>
         </motion.div>

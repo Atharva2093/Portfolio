@@ -1,0 +1,58 @@
+.circular-text {
+  margin: 0 auto;
+  border-radius: 50%;
+  width: 90px;
+  position: relative;
+  height: 90px;
+  font-weight: bold;
+  color: #fff;
+  font-weight: 900;
+  text-align: center;
+  cursor: pointer;
+  transform-origin: 50% 50%;
+  -webkit-transform-origin: 50% 50%;
+  background: rgba(59, 130, 246, 0.1);
+  border: 2px solid rgba(59, 130, 246, 0.3);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.circular-text:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.6);
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+}
+
+.circular-text span {
+  position: absolute;
+  display: inline-block;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  font-size: 10px;
+  transition: all 0.5s cubic-bezier(0, 0, 0, 1);
+  font-weight: 600;
+}
+
+@media (min-width: 640px) {
+  .circular-text {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .circular-text span {
+    font-size: 11px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .circular-text {
+    width: 110px;
+    height: 110px;
+  }
+  
+  .circular-text span {
+    font-size: 12px;
+  }
+}

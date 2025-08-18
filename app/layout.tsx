@@ -44,7 +44,11 @@ export const metadata: Metadata = {
     description: 'Frontend-focused full stack developer passionate about creating innovative web solutions',
   },
   icons: {
-    icon: '/favicon.ico',
+    icon: [
+      { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
+      { url: '/favicon.svg', sizes: 'any', type: 'image/svg+xml' },
+      { url: '/favicon.png', sizes: '512x512', type: 'image/png' }
+    ],
     apple: '/apple-touch-icon.png',
   },
   manifest: '/site.webmanifest',
@@ -55,7 +59,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   userScalable: true,
-  themeColor: '#121212',
+  themeColor: '#3b82f6',
 }
 
 export default function RootLayout({
