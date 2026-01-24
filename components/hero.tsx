@@ -11,10 +11,13 @@ const personalInfo = {
   profileImage: "/images/profiel.png",
   name: "Atharva Jondhale",
   role: "UI/UX & Frontend Developer",
-  subRole: "ERP Developer Intern • Creative Director",
-  location: "Nashik, Maharashtra",
+  subRole: "Computer Engineering Student • UI/UX Specialist",
+  location: "Nashik, Maharashtra, India",
   experience: "2+ Years",
-  techStack: ["React", "C#", "TypeScript", "Avalonia UI", "Firebase", "Google Cloud"],
+  website: "Atharva.dev",
+  email: "atharvajondhale7@gmail.com",
+  phone: "+91 7588195521",
+  techStack: ["TypeScript", "React", "Next.js", "C#", "Tailwind CSS", "Firebase"],
   socialLinks: {
     github: "https://github.com/Atharva2093",
     linkedin: "https://www.linkedin.com/in/atharvajondhale7",
@@ -139,7 +142,7 @@ export const Hero = () => {
   const [isPhotoHovered, setIsPhotoHovered] = useState(false)
 
   const bioTextContent =
-    "Hi, I'm Atharva — a Computer Engineering student passionate about building seamless, user-centric digital experiences. I love blending creativity with technology to design smart, modern solutions powered by AI and thoughtful design."
+    "Computer Engineering student and UI/UX & Front-End Developer with 2+ years of experience, passionate about building modern, user-centric, and scalable digital experiences. Skilled in blending creativity, technology, and AI-powered solutions to deliver high-performance applications."
 
   return (
     <section

@@ -8,11 +8,11 @@ const projects = [
   {
     id: 1,
     name: "BrainBuddy",
-    category: "AI + Web Game",
+    category: "AI Mental Health App",
     image: "/images/buddy.png",
     description:
-      "A mental health-focused AI companion featuring gamified adventures that encourage emotional growth and mental wellness.",
-    techStack: ["Typescript", "Nextjs", "Tailwind CSS", "Supabase", "Gemini API"], 
+      "AI-powered mental health companion featuring gamified adventures that encourage emotional growth and mental wellness. Built with modern tech stack for scalable performance.",
+    techStack: ["TypeScript", "Next.js", "Tailwind CSS", "Supabase", "Gemini API"], 
     liveDemo: "https://brainbuddy-kohl.vercel.app/",
     github:
       "https://github.com/Atharva2093/brain-buddy/tree/main/brainy-buddy-adventures-main",
@@ -23,19 +23,19 @@ const projects = [
     category: "3D Portfolio Experience",
     image: "/images/neon.png",
     description:
-      "A next-gen portfolio template with futuristic UI, interactive animations, and 3D elements built using modern front-end tools.",
-    techStack: [ "React", "Vite", "Tailwind CSS", "Framer Motion", "Zapier Automation"],
+      "A futuristic 3D portfolio template with interactive animations and modern UI. Built using cutting-edge front-end tools for an immersive user experience.",
+    techStack: ["React", "Vite", "Framer Motion", "Tailwind CSS"],
     liveDemo: "https://neon-genesis.vercel.app/",
     github: "https://github.com/ankushkhakale/Neon-Genesis",
   },
   {
     id: 3,
-    name: "Atharva's Portfolio",
+    name: "Personal Portfolio",
     category: "Developer Portfolio",
     image: "/images/portfolio.png",
     description:
-      "My personal portfolio website featuring my journey, skills, and interactive UI with animations and responsive design.",
-    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Emailjs"],
+      "Modern personal portfolio showcasing my journey, skills, and projects with interactive animations, responsive design, and optimized performance.",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "EmailJS"],
     liveDemo: "https://v0-atharva-jondhale-portfolio.vercel.app/",
     github: "https://github.com/Atharva2093/Portfolio",
   },

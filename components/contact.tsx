@@ -78,7 +78,7 @@ export function Contact() {
       value: "atharvajondhale7@gmail.com",
       link: "https://mail.google.com/mail/?view=cm&fs=1&to=atharvajondhale7@gmail.com",
       color: "#3b82f6",
-      description: "Send me an email anytime",
+      description: "Available for quick responses (2-24 hrs)",
     },
     {
       icon: <Phone className="h-6 w-6" />,
@@ -94,7 +94,7 @@ export function Contact() {
       value: "Nashik, Maharashtra, India",
       link: "https://maps.google.com/?q=Nashik,Maharashtra,India",
       color: "#06b6d4",
-      description: "Based in beautiful Nashik",
+      description: "Freelance & Part-Time | Remote Preferred",
     },
   ]
 

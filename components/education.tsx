@@ -30,14 +30,14 @@ const cardVariants = {
 export function Education() {
   const educationData = [
     {
-      degree: "Bachelor of Technology",
+      degree: "Bachelor of Technology (B.Tech)",
       field: "Computer Science Engineering",
-      institution: "Matoshri College of Engineering & Research Centre",
+      institution: "Matoshri College of Engineering & Research Centre (MCOERC)",
       location: "Nashik, Maharashtra",
       period: "2024 - 2028",
       status: "Currently Pursuing",
       description:
-        "Core coursework includes Operating Systems, Database Management Systems, Object-Oriented Programming, and Software Engineering.",
+        "Core coursework includes Operating Systems, Database Management Systems, Object-Oriented Programming, Data Structures, Algorithms, and Software Engineering.",
       subjects: ["Operating Systems", "DBMS", "OOP", "Software Engineering", "Data Structures", "Algorithms"],
       icon: <GraduationCap className="h-5 w-5" />,
       current: true,

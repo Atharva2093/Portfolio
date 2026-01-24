@@ -16,9 +16,13 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Atharva Jondhale - Full Stack Developer",
-  description: "Frontend-focused full stack developer passionate about creating innovative web solutions",
+  title: "Atharva Jondhale - UI/UX & Frontend Developer | Atharva.dev",
+  description: "Computer Engineering student and UI/UX & Front-End Developer with 2+ years of experience building modern, user-centric, and scalable digital experiences. Specializing in React, Next.js, TypeScript, and AI-powered solutions.",
   generator: 'v0.dev',
+  keywords: ['UI/UX Developer', 'Frontend Developer', 'React Developer', 'Next.js', 'TypeScript', 'Web Development', 'Atharva Jondhale', 'Nashik', 'Portfolio'],
+  authors: [{ name: 'Atharva Jondhale', url: 'https://atharva.dev' }],
+  creator: 'Atharva Jondhale',
+  publisher: 'Atharva Jondhale',
   robots: {
     index: true,
     follow: true,
@@ -33,15 +37,16 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://atharvajondhale.vercel.app',
-    title: 'Atharva Jondhale - Full Stack Developer',
-    description: 'Frontend-focused full stack developer passionate about creating innovative web solutions',
+    url: 'https://atharva.dev',
+    title: 'Atharva Jondhale - UI/UX & Frontend Developer',
+    description: 'Computer Engineering student with 2+ years of experience building modern, user-centric digital experiences. Specializing in React, Next.js, TypeScript, and creative UI development.',
     siteName: 'Atharva Jondhale Portfolio',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Atharva Jondhale - Full Stack Developer',
-    description: 'Frontend-focused full stack developer passionate about creating innovative web solutions',
+    title: 'Atharva Jondhale - UI/UX & Frontend Developer',
+    description: 'Building modern, user-centric digital experiences with React, Next.js, and TypeScript',
+    creator: '@atharva_j2093',
   },
   icons: {
     icon: [

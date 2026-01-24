@@ -20,20 +20,20 @@ const skillsData = [
     icon: "🔷",
     color: "#3178C6",
     category: "Programming",
-    level: 30,
+    level: 75,
     description: "Type-safe development for scalable applications",
     projects: ["Full-stack apps", "API Development"],
-    proficiency: "Learner"
+    proficiency: "Advanced"
   },
   {
     name: "JavaScript",
     icon: "⚡",
     color: "#F7DF1E",
     category: "Programming",
-    level: 30,
+    level: 80,
     description: "Core language for web development and dynamic interactions",
     projects: ["Interactive UIs", "Web Applications"],
-    proficiency: "Learner"
+    proficiency: "Advanced"
   },
   {
     name: "Python",
@@ -50,9 +50,19 @@ const skillsData = [
     icon: "🟦",
     color: "#239120",
     category: "Programming",
-    level: 60,
+    level: 70,
     description: "Desktop application development with Avalonia UI framework",
     projects: ["ERP Systems", "Desktop Apps"],
+    proficiency: "Advanced"
+  },
+  {
+    name: "SQL",
+    icon: "🗄️",
+    color: "#336791",
+    category: "Programming",
+    level: 65,
+    description: "Database design and query optimization",
+    projects: ["Data Management", "ERP Systems"],
     proficiency: "Intermediate"
   },
 
@@ -62,9 +72,19 @@ const skillsData = [
     icon: "⚛️",
     color: "#61DAFB",
     category: "Frontend",
-    level: 70,
+    level: 85,
     description: "2+ years experience building responsive UIs and state management",
     projects: ["Neon Genesis", "Portfolio Website"],
+    proficiency: "Expert"
+  },
+  {
+    name: "Next.js",
+    icon: "▲",
+    color: "#000000",
+    category: "Frontend",
+    level: 80,
+    description: "Server-side rendering and static site generation",
+    projects: ["BrainBuddy", "Portfolio"],
     proficiency: "Advanced"
   },
   {
@@ -72,19 +92,9 @@ const skillsData = [
     icon: "💅",
     color: "#06B6D4",
     category: "Frontend",
-    level: 65,
+    level: 85,
     description: "Utility-first CSS framework for rapid UI development",
     projects: ["Modern Websites", "Component Libraries"],
-    proficiency: "Advanced"
-  },
-  {
-    name: "Responsive Design",
-    icon: "📱",
-    color: "#4ECDC4",
-    category: "Frontend",
-    level: 60,
-    description: "Cross-device compatibility and mobile-first design",
-    projects: ["Mobile Apps", "Web Applications"],
     proficiency: "Expert"
   },
   {
@@ -92,7 +102,7 @@ const skillsData = [
     icon: "🌐",
     color: "#E34F26",
     category: "Frontend",
-    level: 80,
+    level: 90,
     description: "Semantic markup and modern web standards",
     projects: ["Web Applications", "Landing Pages"],
     proficiency: "Expert"
@@ -102,89 +112,71 @@ const skillsData = [
     icon: "🧵",
     color: "#1572B6",
     category: "Frontend",
-    level: 80,
+    level: 85,
     description: "Advanced styling, animations, and responsive design",
     projects: ["Custom Designs", "Animations"],
+    proficiency: "Expert"
+  },
+  {
+    name: "Framer Motion",
+    icon: "✨",
+    color: "#FF0055",
+    category: "Frontend",
+    level: 75,
+    description: "Animation library for React applications",
+    projects: ["Interactive UIs", "Smooth Transitions"],
     proficiency: "Advanced"
   },
 
-  // Backend
+  // Backend & Systems
   {
     name: "Node.js",
     icon: "🟢",
     color: "#339933",
     category: "Backend",
-    level: 50,
+    level: 70,
     description: "Server-side JavaScript for scalable applications",
     projects: ["APIs", "Real-time apps"],
-    proficiency: "Intermediate"
-  },
-  {
-    name: "gRPC",
-    icon: "🔗",
-    color: "#244c5a",
-    category: "Backend",
-    level: 50,
-    description: "High-performance RPC framework for microservices",
-    projects: ["API Communication", "Microservices"],
-    proficiency: "Intermediate"
+    proficiency: "Advanced"
   },
   {
     name: "Firebase",
     icon: "🔥",
     color: "#FFCA28",
     category: "Backend",
-    level: 60,
+    level: 75,
     description: "Cloud services for authentication, database, and hosting",
-    projects: ["Web Apps", "Mobile Backend"],
-    proficiency: "Learner"
+    projects: ["BrainBuddy", "Web Apps"],
+    proficiency: "Advanced"
   },
-
-  // Database
   {
-    name: "SQL",
-    icon: "🗄️",
-    color: "#336791",
-    category: "Database",
-    level: 50,
-    description: "Database design and query optimization",
-    projects: ["Data Management", "ERP Systems"],
-    proficiency: "Partial"
-  },
-
-  // Cloud
-  {
-    name: "Google Cloud",
-    icon: "☁️",
-    color: "#4285F4",
-    category: "Cloud",
-    level: 70,
-    description: "Cloud infrastructure and deployment solutions",
-    projects: ["App Deployment", "Cloud Services"],
+    name: "gRPC",
+    icon: "🔗",
+    color: "#244c5a",
+    category: "Backend",
+    level: 65,
+    description: "High-performance RPC framework for microservices",
+    projects: ["ERP Systems", "Microservices"],
     proficiency: "Intermediate"
   },
-
-  // Desktop
   {
     name: "Avalonia UI",
     icon: "🖥️",
     color: "#663399",
-    category: "Desktop",
-    level: 80,
+    category: "Backend",
+    level: 75,
     description: "Cross-platform desktop application development",
-    projects: ["Desktop Apps", "Business Software"],
+    projects: ["ERP Systems", "Desktop Apps"],
     proficiency: "Advanced"
   },
-
-  // Architecture
   {
     name: "MVVM",
     icon: "🏗️",
     color: "#8E44AD",
-    category: "Architecture",
-    level: 60,
+    category: "Backend",
+    level: 70,
     description: "Architectural pattern for scalable applications",
-    projects: ["Enterprise Apps", "Desktop Software"],
+    projects: ["Enterprise Apps", "ERP Software"],
     proficiency: "Advanced"
   },
 
@@ -194,62 +186,62 @@ const skillsData = [
     icon: "🔀",
     color: "#F05032",
     category: "Tools",
-    level: 860,
+    level: 85,
     description: "Version control and collaborative development",
     projects: ["Team Development", "Code Management"],
-    proficiency: "Advanced"
+    proficiency: "Expert"
   },
   {
     name: "GitHub",
     icon: "🐙",
     color: "#181717",
     category: "Tools",
-    level: 70,
+    level: 85,
     description: "Code hosting, collaboration, and project management",
     projects: ["Open Source", "Team Projects"],
-    proficiency: "Advanced"
+    proficiency: "Expert"
+  },
+  {
+    name: "Google Cloud",
+    icon: "☁️",
+    color: "#4285F4",
+    category: "Tools",
+    level: 65,
+    description: "Cloud infrastructure and deployment solutions",
+    projects: ["App Deployment", "Cloud Services"],
+    proficiency: "Intermediate"
   },
 
   // Design
-  {
-    name: "UI/UX Design",
-    icon: "🧑‍🎨",
-    color: "#FF6B6B",
-    category: "Design",
-    level: 80,
-    description: "User experience and interface design",
-    projects: ["App Interfaces", "User Research"],
-    proficiency: "Advanced"
-  },
   {
     name: "Figma",
     icon: "🎯",
     color: "#F24E1E",
     category: "Design",
-    level: 50,
+    level: 75,
     description: "UI/UX design and prototyping",
     projects: ["App Designs", "Wireframes"],
-    proficiency: "Intermediate"
+    proficiency: "Advanced"
   },
   {
     name: "Canva",
     icon: "📐",
     color: "#00C4CC",
     category: "Design",
-    level: 80,
+    level: 85,
     description: "Graphic design and visual content creation",
     projects: ["Social Media", "Marketing Materials"],
-    proficiency: "Advanced"
+    proficiency: "Expert"
   },
   {
     name: "Photoshop",
     icon: "🖼️",
     color: "#31A8FF",
     category: "Design",
-    level: 75,
+    level: 70,
     description: "Image editing and graphic design",
     projects: ["Photo Editing", "Graphics"],
-    proficiency: "Intermediate"
+    proficiency: "Advanced"
   },
 
   // Media
@@ -268,10 +260,10 @@ const skillsData = [
     icon: "✂️",
     color: "#000000",
     category: "Media",
-    level: 80,
+    level: 85,
     description: "Video editing for social media content",
     projects: ["Short Videos", "Content Creation"],
-    proficiency: "Intermediate"
+    proficiency: "Advanced"
   }
 ];
 

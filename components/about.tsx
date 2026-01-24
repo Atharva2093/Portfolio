@@ -7,9 +7,9 @@ import { MapPin, GraduationCap, Laptop2, MousePointer2, PenTool, Code, Sparkles,
 const defaultProps = {
   name: "Atharva Jondhale",
   study: "MCOERC - Computer Engineering",
-  company: "Praktan Technologies",
+  company: "Neon Genesis",
   location: "Nashik, Maharashtra, India",
-  status: "ERP Developer Intern & Student",
+  status: "Computer Engineering Student",
   focus: "UI/UX & Frontend Development",
   interests: [
     { label: "Frontend Engineering", icon: <Code size={24} /> },
@@ -21,9 +21,9 @@ const defaultProps = {
   ],
   facts: [
     { icon: <MapPin size={18} />, label: "Location", value: "Nashik, Maharashtra" },
-    { icon: <Laptop2 size={18} />, label: "Current Role", value: "ERP Developer Intern", highlight: "green" },
+    { icon: <Laptop2 size={18} />, label: "Current Role", value: "UI/UX Specialist", highlight: "green" },
     { icon: <GraduationCap size={18} />, label: "Education", value: "B.Tech Computer Engineering" },
-    { icon: <Laptop2 size={18} />, label: "Co-founder", value: "Neon Genesis", highlight: "blue" },
+    { icon: <Laptop2 size={18} />, label: "Experience", value: "2+ Years", highlight: "blue" },
   ],
 }
 
@@ -154,35 +154,32 @@ const About = (props: AboutProps) => {
                 >
                   <div className="space-y-3 sm:space-y-4 lg:space-y-6 text-white font-body leading-relaxed">
                     <p className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold font-sans">
-                      Hey! I'm <span className="text-pink-500 font-semibold">Atharva Jondhale</span> — a tech enthusiast passionate about building sleek, high-performance digital experiences.
-                      I blend creativity with code to craft interfaces that feel <span className="text-pink-500 font-semibold">fresh</span>, intuitive, and genuinely <span className="text-pink-500 font-semibold">fun</span> to use.
-                      When I'm not coding, I'm exploring new tools, prototyping ideas, or leveling up my dev game.
+                      Hey! I'm <span className="text-pink-500 font-semibold">Atharva Jondhale</span> — a Computer Engineering student and UI/UX & Front-End Developer with 2+ years of experience,
+                      passionate about building modern, user-centric, and scalable digital experiences. I blend creativity, technology, and AI-powered solutions to deliver
+                      <span className="text-pink-500 font-semibold"> high-performance applications</span> that feel fresh, intuitive, and genuinely <span className="text-pink-500 font-semibold">impactful</span>.
                     </p>
 
                     <ul className="list-none space-y-2 sm:space-y-3 text-white/90 text-xs sm:text-sm md:text-base lg:text-lg font-normal mt-3 sm:mt-4">
-                      <li>🎓 <span className="font-semibold">Computer Engineering student</span> at MCOERC, Nashik</li>
+                      <li>🎓 <span className="font-semibold">B.Tech in Computer Science Engineering</span> at MCOERC, Nashik (2024–2028)</li>
                       <li>
-                        🚀 Building full-stack projects at 
+                        🚀 UI/UX Specialist at 
                         <a href="https://neon-genesis.vercel.app/" target="_blank" rel="noopener noreferrer"
                            className="font-semibold text-pink-500 hover:text-pink-400 transition-colors duration-300 no-underline ml-1">
                           Neon Genesis
                         </a>
                       </li>
-                      <li>
-                        💼 ERP Developer Intern at 
-                        <a href="https://www.google.com/search?gs_ssp=eJzj4tVP1zc0LKiqLMjLzck2YLRSNagwTkpJsTRJtjA1NweyzM2tDCosLdPMTJJNDM0skkzMTM3MvEQKihKzSxLzFEpSkzPy8nPy0zNTiwFwchfW&q=praktan+technologies&rlz=1C1GCEA_en-GBIN1169IN1169&oq=pra&gs_lcrp=EgZjaHJvbWUqFQgBEC4YJxivARjHARiABBiKBRiOBTIGCAAQRRg8MhUIARAuGCcYrwEYxwEYgAQYigUYjgUyDAgCEC4YQxiABBiKBTIGCAMQRRg5MhIIBBAuGEMYrwEYxwEYgAQYigUyDAgFEAAYQxiABBiKBTIGCAYQRRg8MgYIBxBFGDzSAQg0MDQ2ajBqMagCALACAA&sourceid=chrome&ie=UTF-8" target="_blank" rel="noopener noreferrer"
-                           className="font-semibold text-pink-500 hover:text-pink-400 transition-colors duration-300 no-underline ml-1">
-                          Praktan Technologies
-                        </a>
-                      </li>
+                      <li>✅ Completed ERP Developer Internship at Praktan Technologies</li>
+                      <li>🎯 Google Student Ambassador (GSA) representing campus programs</li>
+                      <li>📢 GDG On Campus Co-Organizer managing tech events & workshops</li>
+                      <li>🎥 Member at Matoshri Technical Event Cell (Media Production)</li>
+                      <li>💡 Member at Matoshri E-Cell promoting innovation & startups</li>
                       <li>🎨 Specializing in frontend development and UI/UX design</li>
                       <li>🎭 Passionate about creative coding, motion, and visuals</li>
                       <li>🌐 Builds immersive, responsive apps for all screens</li>
-                      <li>🧰 Fluent in React, Tailwind CSS, Framer Motion, gRPC, MVVM</li>
-                      <li>💡 Always experimenting, always solving</li>
-                      <li>🤝 Thrives in collaborative, agile environments</li>
-                      <li>📊 Experienced in building scalable, data-driven systems</li>
-                      <li>📸 Media production & tech event coverage at MCOERC</li>
+                      <li>🧰 Fluent in TypeScript, React, Next.js, Tailwind CSS, C#, Firebase</li>
+                      <li>👥 Thrives in collaborative, agile environments</li>
+                      <li>📊 4+ Active Roles | 8+ Technologies | 3+ Major Projects</li>
+                      <li>🌟 Open Source Contributor: ECWOC, Aperture 3.0, WOCS</li>
                     </ul>
                   </div>
                 </motion.div>
