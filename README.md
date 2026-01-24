@@ -1,9 +1,13 @@
 
 # Atharva Jondhale's Portfolio
 
+<<<<<<< HEAD
 A **modern, responsive portfolio website** built with **Next.js, TypeScript, and Tailwind CSS**. Showcasing my work as a **UI/UX & Frontend Developer** with 2+ years of experience building modern, user-centric, and scalable digital experiences. Features interactive animations, optimized performance, and a sleek dark theme.
 
 ![Portfolio Preview](/public/images/portfolio.png)
+=======
+A **modern, responsive portfolio website** built with **Next.js, TypeScript, and Tailwind CSS**. It features a sleek, professional design with interactive animations, optimized performance, and a dark theme, showcasing my work as a **UI/UX & Frontend Developer**.
+>>>>>>> 95f7feee9009d1028abdeedac9dbb31cce31a717
 
 ---
 
@@ -177,6 +181,7 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 
 ## 🤝 Contact
 
+<<<<<<< HEAD
 * **Website:** [Atharva.dev](https://atharva.dev)
 * **Email:** [atharvajondhale7@gmail.com](mailto:atharvajondhale7@gmail.com)
 * **Phone:** +91 7588195521
@@ -185,6 +190,11 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 * **Twitter:** [@atharva_j2093](https://x.com/atharva_j2093)
 * **Location:** Nashik, Maharashtra, India
 * **Availability:** Freelance & Part-Time | Remote Preferred | Quick Response (2-24 hrs)
+=======
+* **LinkedIn:** [atharvajondhale7](https://www.linkedin.com/in/atharvajondhale7)
+* **GitHub:** [Atharva2093](https://github.com/Atharva2093)
+* **Email:** [atharvajondhale7@gmail.com](mailto:atharvajondhale7@gmail.com)
+>>>>>>> 95f7feee9009d1028abdeedac9dbb31cce31a717
 
 ---
 
